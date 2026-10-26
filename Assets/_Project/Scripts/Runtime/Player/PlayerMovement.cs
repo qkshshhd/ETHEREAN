@@ -4,10 +4,13 @@ namespace Etherean.Player
 {
     [DisallowMultipleComponent]
     [RequireComponent(typeof(Rigidbody2D), typeof(PlayerGroundSensor))]
+    [RequireComponent(typeof(PlayerWallSensor), typeof(PlayerTraversalAbilities))]
     public sealed class PlayerMovement : MonoBehaviour
     {
         [SerializeField] private PlayerMovementInput movementInputSource;
         [SerializeField] private PlayerGroundSensor groundSensor;
+        [SerializeField] private PlayerWallSensor wallSensor;
+        [SerializeField] private PlayerTraversalAbilities traversalAbilities;
         [SerializeField, Min(0f)] private float horizontalMoveSpeed = 6f;
         [SerializeField, Min(0.01f)] private float acceleration = 40f;
         [SerializeField, Min(0.01f)] private float deceleration = 60f;
@@ -18,6 +21,7 @@ namespace Etherean.Player
         [SerializeField, Min(0.01f)] private float riseGravity = 24f;
         [SerializeField, Min(0.01f)] private float fallGravity = 48f;
         [SerializeField, Min(0.01f)] private float maxFallSpeed = 20f;
+        [SerializeField, Min(0.01f)] private float wallSlideSpeed = 3f;
 
         private Rigidbody2D _rigidbody2D;
         private float _lastGroundedTime = float.NegativeInfinity;
@@ -29,11 +33,14 @@ namespace Etherean.Player
         private bool _ownsGravity;
 
         public bool IsGrounded { get; private set; }
+        public bool IsWallSliding { get; private set; }
 
         private void Reset()
         {
             movementInputSource = GetComponent<PlayerMovementInput>();
             groundSensor = GetComponent<PlayerGroundSensor>();
+            wallSensor = GetComponent<PlayerWallSensor>();
+            traversalAbilities = GetComponent<PlayerTraversalAbilities>();
         }
 
         private void Awake()
@@ -41,21 +48,25 @@ namespace Etherean.Player
             _rigidbody2D = GetComponent<Rigidbody2D>();
             if (groundSensor == null)
                 groundSensor = GetComponent<PlayerGroundSensor>();
+            if (wallSensor == null)
+                wallSensor = GetComponent<PlayerWallSensor>();
+            if (traversalAbilities == null)
+                traversalAbilities = GetComponent<PlayerTraversalAbilities>();
             if (movementInputSource == null)
             {
                 movementInputSource = GetComponent<PlayerMovementInput>();
             }
 
-            if (movementInputSource == null || groundSensor == null)
+            if (movementInputSource == null || groundSensor == null || wallSensor == null || traversalAbilities == null)
             {
-                Debug.LogError("PlayerMovement requires input and ground sensor components.", this);
+                Debug.LogError("PlayerMovement requires input, ground sensor, wall sensor and traversal abilities.", this);
                 enabled = false;
             }
         }
 
         private void OnEnable()
         {
-            if (_rigidbody2D == null || movementInputSource == null || groundSensor == null)
+            if (_rigidbody2D == null || movementInputSource == null || groundSensor == null || wallSensor == null || traversalAbilities == null)
             {
                 enabled = false;
                 return;
@@ -69,6 +80,7 @@ namespace Etherean.Player
             _jumpAvailable = false;
             _jumpCutAvailable = false;
             IsGrounded = false;
+            IsWallSliding = false;
             movementInputSource.ConsumeJumpPress();
             movementInputSource.ConsumeJumpRelease();
         }
@@ -94,6 +106,7 @@ namespace Etherean.Player
 
         private float CalculateVerticalSpeed(float currentSpeed)
         {
+            IsWallSliding = false;
             IsGrounded = currentSpeed <= 0f && groundSensor.CheckGrounded();
             if (IsGrounded)
             {
@@ -109,6 +122,7 @@ namespace Etherean.Player
                 (IsGrounded || Time.fixedTime - _lastGroundedTime <= Mathf.Max(0f, coyoteTime)))
             {
                 IsGrounded = false;
+                IsWallSliding = false;
                 _jumpAvailable = false;
                 _jumpCutAvailable = true;
                 _lastGroundedTime = float.NegativeInfinity;
@@ -125,8 +139,15 @@ namespace Etherean.Player
 
             currentSpeed = ApplyJumpCut(currentSpeed, jumpReleased);
             float gravity = currentSpeed > 0f ? riseGravity : fallGravity;
-            return Mathf.Max(currentSpeed - Mathf.Max(0f, gravity) * Time.fixedDeltaTime,
+            float nextSpeed = Mathf.Max(currentSpeed - Mathf.Max(0f, gravity) * Time.fixedDeltaTime,
                 -Mathf.Max(0f, maxFallSpeed));
+            if (currentSpeed <= 0f && traversalAbilities.isActiveAndEnabled &&
+                traversalAbilities.WallTraversalUnlocked && wallSensor.CheckWalls().HasContact)
+            {
+                IsWallSliding = true;
+                nextSpeed = Mathf.Max(nextSpeed, -Mathf.Max(0.01f, wallSlideSpeed));
+            }
+            return nextSpeed;
         }
 
         private void UpdateJumpBuffer(bool jumpPressed, bool jumpReleased)
@@ -181,6 +202,7 @@ namespace Etherean.Player
                 _ownsGravity = false;
             }
             IsGrounded = false;
+            IsWallSliding = false;
             _jumpAvailable = false;
             _jumpCutAvailable = false;
             _lastGroundedTime = float.NegativeInfinity;

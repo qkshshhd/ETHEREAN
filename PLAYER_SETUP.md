@@ -120,4 +120,22 @@ Play 중 PlayerMovement가 활성화되면 Gravity Scale은 0이 된다. 상승�
 
 사용자의 설계 방향: 이후 최종 이동 속도는 캐릭터 스탯에서 공급하고 PlayerMovement는 입력에 따른 가속·감속과 실제 물리 이동을 담당한다. 현재 `horizontalMoveSpeed`는 프로토타입용 임시 공급 값으로 유지한다. 스탯의 기본값·보정·최종값 관리 방식과 연결은 해당 기능을 승인받은 뒤 설계하며, 이번 작업에서는 스탯 클래스나 미사용 인터페이스를 추가하지 않는다.
 
-기초 이동의 검증 근거는 `Docs/Reports/2026-10-25-jump-buffer.md`와 앞선 보고서를 참고한다. 2026-10-26 커밋 전 별도 C# 컴파일은 통과했으며, 이전 Play Mode 검사를 새로 실행했다고 표현하지 않는다. 사용자가 승인한 다음 작업은 벽 감지와 벽 이동 능력 잠금·해금 조건 설계다. 설계 검토 후 다음 구현 단위를 진행한다.
+기초 이동의 검증 근거는 `Docs/Reports/2026-10-25-jump-buffer.md`와 앞선 보고서를 참고한다. 2026-10-26 커밋 전 별도 C# 컴파일은 통과했으며, 이전 Play Mode 검사를 새로 실행했다고 표현하지 않는다. 이후 승인된 벽 미끄러짐의 현재 상태는 아래 최신 기록과 해당 최종 보고서를 따른다.
+
+
+## 벽 미끄러짐 완료와 현재 저장 설정
+
+벽 미끄러짐 구현과 프리팹 연결, 별도 테스트 씬 및 Unity 검사 66개(8 Editor + 58 Play Mode)를 완료했다. 2026-10-26 사용자가 동작을 긍정적으로 검토했고, 2026-10-27 임시 검증 파일 정리 및 잔여 7개 C# 소스의 새 별도 컴파일을 완료했다. 같은 날짜에 Play Mode 검사를 새로 반복한 것은 아니다.
+
+- PlayerWallSensor.CheckWalls는 좌우 접촉만 반환한다.
+- PlayerTraversalAbilities는 기본 잠금과 UnlockWallTraversal을 제공한다.
+- PlayerMovement.CalculateVerticalSpeed는 해금 후 하강 중 벽 접촉에서 Y속도를 -wallSlideSpeed 이상으로 제한한다. 상승 중에는 제한하지 않는다.
+- Rigidbody2D의 X와 Y 속도는 PlayerMovement 한 곳에서 적용한다.
+
+프리팹은 Wall Traversal Unlocked=false, Wall Slide Speed=3이다. 별도 테스트 씬은 Assets/_Project/Scenes/Tests/PlayerWallSlideTest.unity다. Play 중 해금 체크를 끄고 켜며 A/D와 Space로 잠금·상승·미끄러짐·벽 이탈·착지를 확인한다.
+
+기존 PlayerMovementTest.unity에는 저장된 테스트 오버라이드 wallTraversalUnlocked=true와 wallLayers=51이 있다. 이 씬의 설정은 보존했다. 영구 능력 획득과 저장을 구현한 뜻은 아니다.
+
+실제 이동 기록은 0.200초에 0.600u였다. 자세한 파일별 변경 위치, 흐름과 실제 실행 로그는 Docs/Reports/2026-10-26-wall-slide.md에 보존했다. 임시 자동 검증기는 제거했으므로 Ctrl+R만으로 검사가 자동 실행되지 않는다.
+
+벽 매달리기는 이번 범위에서 제외한다. 벽차기와 실제 F 이벤트, GameProgress 및 영구 저장은 다음 별도 승인 단위다. 최종 이동 속도를 스탯에서 공급하는 방향은 유지하되 이번 기능에서는 horizontalMoveSpeed를 임시 공급 값으로 사용한다.

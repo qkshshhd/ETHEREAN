@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 11400000}
   - component: {fileID: 11400001}
   - component: {fileID: 2350256352188075920}
+  - component: {fileID: 2813980938980708209}
+  - component: {fileID: 7087490968946619160}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -129,6 +131,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Etherean.Player.PlayerMovement
   movementInputSource: {fileID: 11400000}
   groundSensor: {fileID: 2350256352188075920}
+  wallSensor: {fileID: 2813980938980708209}
+  traversalAbilities: {fileID: 7087490968946619160}
   horizontalMoveSpeed: 6
   acceleration: 40
   deceleration: 60
@@ -139,6 +143,7 @@ MonoBehaviour:
   riseGravity: 42
   fallGravity: 48
   maxFallSpeed: 20
+  wallSlideSpeed: 3
 --- !u!114 &2350256352188075920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,6 +161,36 @@ MonoBehaviour:
     m_Bits: 51
   groundCheckDistance: 0.05
   maxGroundAngle: 50
+--- !u!114 &2813980938980708209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0517dee283b51db4cae4e65e813b89c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Etherean.Player.PlayerWallSensor
+  wallLayers:
+    serializedVersion: 2
+    m_Bits: 4294967291
+  wallCheckDistance: 0.05
+  maxWallAngle: 15
+--- !u!114 &7087490968946619160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9eb0199cff056234fb313c6229b61a92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Etherean.Player.PlayerTraversalAbilities
+  wallTraversalUnlocked: 0
 --- !u!1 &100001
 GameObject:
   m_ObjectHideFlags: 0

@@ -262,6 +262,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2813980938980708209, guid: 3e46627fd46a4cac9d7422ce77818392, type: 3}
+      propertyPath: wallLayers.m_Bits
+      value: 51
+      objectReference: {fileID: 0}
+    - target: {fileID: 7087490968946619160, guid: 3e46627fd46a4cac9d7422ce77818392, type: 3}
+      propertyPath: wallTraversalUnlocked
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

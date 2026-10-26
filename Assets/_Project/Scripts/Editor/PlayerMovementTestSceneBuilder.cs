@@ -11,6 +11,7 @@ namespace Etherean.Editor
     public static class PlayerMovementTestSceneBuilder
     {
         private const string ScenePath = "Assets/_Project/Scenes/Tests/PlayerMovementTest.unity";
+        internal const string WallSlideScenePath = "Assets/_Project/Scenes/Tests/PlayerWallSlideTest.unity";
         private const string PrefabPath = "Assets/_Project/Prefabs/Player/Player.prefab";
         private const string SpritePath = "Assets/_Project/Art/Sprites/MovementSquare.png";
         private const string MaterialPath = "Assets/_Project/Art/Materials/MovementPlaceholder.mat";
@@ -119,10 +120,14 @@ namespace Etherean.Editor
             if (new SerializedObject(reader).FindProperty("moveActionReference").objectReferenceValue == null)
                 throw new InvalidOperationException("The Move action reference was not assigned to the reader.");
             var groundSensor = player.AddComponent<PlayerGroundSensor>();
+            var wallSensor = player.AddComponent<PlayerWallSensor>();
+            var abilities = player.AddComponent<PlayerTraversalAbilities>();
             var movement = player.AddComponent<PlayerMovement>();
             var movementSettings = new SerializedObject(movement);
             movementSettings.FindProperty("movementInputSource").objectReferenceValue = reader;
             movementSettings.FindProperty("groundSensor").objectReferenceValue = groundSensor;
+            movementSettings.FindProperty("wallSensor").objectReferenceValue = wallSensor;
+            movementSettings.FindProperty("traversalAbilities").objectReferenceValue = abilities;
             movementSettings.ApplyModifiedPropertiesWithoutUndo();
             GameObject visual = CreateRectangle("Visual", Vector2.zero, new Vector2(0.8f, 1.8f),
                 new Color(0.35f, 0.9f, 0.85f), sprite, material);
@@ -162,6 +167,37 @@ namespace Etherean.Editor
                 throw new IOException("Failed to save the movement test scene.");
             AssetDatabase.SaveAssets();
             Debug.Log($"Horizontal movement scene created: {ScenePath}");
+        }
+
+        [MenuItem("ETHEREAN/Tests/Create Wall Slide Scene")]
+        public static void CreateWallSlideScene()
+        {
+            if (Application.isPlaying)
+                throw new InvalidOperationException("Stop Play Mode before creating a wall slide scene.");
+            if (File.Exists(WallSlideScenePath))
+                throw new InvalidOperationException($"Asset already exists: {WallSlideScenePath}");
+
+            Sprite sprite = AssetDatabase.LoadAssetAtPath<Sprite>(SpritePath);
+            Material material = AssetDatabase.LoadAssetAtPath<Material>(MaterialPath);
+            if (sprite == null || material == null || !File.Exists(ScenePath))
+                throw new InvalidOperationException("Create the base movement scene first.");
+            if (!AssetDatabase.CopyAsset(ScenePath, WallSlideScenePath))
+                throw new IOException("Failed to copy the base movement scene.");
+
+            var scene = EditorSceneManager.OpenScene(WallSlideScenePath, OpenSceneMode.Additive);
+            UnityEngine.SceneManagement.SceneManager.SetActiveScene(scene);
+            GameObject left = CreateRectangle("Left Wall Extension", new Vector2(-8f, 4f), new Vector2(0.5f, 5f),
+                new Color(0.36f, 0.43f, 0.5f), sprite, material);
+            UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(left, scene);
+            left.AddComponent<BoxCollider2D>();
+            GameObject right = CreateRectangle("Right Wall Extension", new Vector2(8f, 4f), new Vector2(0.5f, 5f),
+                new Color(0.36f, 0.43f, 0.5f), sprite, material);
+            UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(right, scene);
+            right.AddComponent<BoxCollider2D>();
+            EditorSceneManager.MarkSceneDirty(scene);
+            if (!EditorSceneManager.SaveScene(scene))
+                throw new IOException("Failed to save wall slide scene.");
+            UnityEngine.SceneManagement.SceneManager.SetActiveScene(scene);
         }
 
         private static Sprite CreateSquareSprite()
