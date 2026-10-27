@@ -11,6 +11,7 @@ namespace Etherean.Editor
     public static class PlayerMovementTestSceneBuilder
     {
         private const string ScenePath = "Assets/_Project/Scenes/Tests/PlayerMovementTest.unity";
+        internal const string WallJumpScenePath = "Assets/_Project/Scenes/Tests/PlayerWallJumpTest.unity";
         internal const string WallSlideScenePath = "Assets/_Project/Scenes/Tests/PlayerWallSlideTest.unity";
         private const string PrefabPath = "Assets/_Project/Prefabs/Player/Player.prefab";
         private const string SpritePath = "Assets/_Project/Art/Sprites/MovementSquare.png";
@@ -123,12 +124,17 @@ namespace Etherean.Editor
             var wallSensor = player.AddComponent<PlayerWallSensor>();
             var abilities = player.AddComponent<PlayerTraversalAbilities>();
             var movement = player.AddComponent<PlayerMovement>();
-            var movementSettings = new SerializedObject(movement);
-            movementSettings.FindProperty("movementInputSource").objectReferenceValue = reader;
-            movementSettings.FindProperty("groundSensor").objectReferenceValue = groundSensor;
-            movementSettings.FindProperty("wallSensor").objectReferenceValue = wallSensor;
-            movementSettings.FindProperty("traversalAbilities").objectReferenceValue = abilities;
-            movementSettings.ApplyModifiedPropertiesWithoutUndo();
+            var locomotion = player.AddComponent<PlayerLocomotion>();
+            var locomotionSettings = new SerializedObject(locomotion);
+            locomotionSettings.FindProperty("movementInputSource").objectReferenceValue = reader;
+            locomotionSettings.FindProperty("groundSensor").objectReferenceValue = groundSensor;
+            locomotionSettings.FindProperty("wallSensor").objectReferenceValue = wallSensor;
+            locomotionSettings.FindProperty("traversalAbilities").objectReferenceValue = abilities;
+            locomotionSettings.FindProperty("movement").objectReferenceValue = movement;
+            locomotionSettings.FindProperty("jump").objectReferenceValue = player.GetComponent<PlayerJump>();
+            locomotionSettings.FindProperty("wallJump").objectReferenceValue = player.GetComponent<PlayerWallJump>();
+            locomotionSettings.FindProperty("wallSlide").objectReferenceValue = player.GetComponent<PlayerWallSlide>();
+            locomotionSettings.ApplyModifiedPropertiesWithoutUndo();
             GameObject visual = CreateRectangle("Visual", Vector2.zero, new Vector2(0.8f, 1.8f),
                 new Color(0.35f, 0.9f, 0.85f), sprite, material);
             visual.transform.SetParent(player.transform, false);
@@ -198,6 +204,64 @@ namespace Etherean.Editor
             if (!EditorSceneManager.SaveScene(scene))
                 throw new IOException("Failed to save wall slide scene.");
             UnityEngine.SceneManagement.SceneManager.SetActiveScene(scene);
+        }
+
+        [MenuItem("ETHEREAN/Tests/Create Wall Jump Scene")]
+        public static void CreateWallJumpScene()
+        {
+            if (Application.isPlaying)
+                throw new InvalidOperationException("Stop Play Mode before creating a wall jump scene.");
+            if (File.Exists(WallJumpScenePath))
+                throw new InvalidOperationException($"Asset already exists: {WallJumpScenePath}");
+
+            GameObject prefab = AssetDatabase.LoadAssetAtPath<GameObject>(PrefabPath);
+            Sprite sprite = AssetDatabase.LoadAssetAtPath<Sprite>(SpritePath);
+            Material material = AssetDatabase.LoadAssetAtPath<Material>(MaterialPath);
+            if (prefab == null || sprite == null || material == null)
+                throw new InvalidOperationException("Create the base movement assets first.");
+
+            var previousScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene();
+            var scene = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Additive);
+            UnityEngine.SceneManagement.SceneManager.SetActiveScene(scene);
+            try
+            {
+                var cameraObject = new GameObject("Main Camera", typeof(Camera), typeof(AudioListener));
+                cameraObject.tag = "MainCamera";
+                cameraObject.transform.position = new Vector3(0f, 6f, -10f);
+                Camera camera = cameraObject.GetComponent<Camera>();
+                camera.orthographic = true;
+                camera.orthographicSize = 8f;
+                camera.backgroundColor = new Color(0.035f, 0.05f, 0.08f);
+                camera.clearFlags = CameraClearFlags.SolidColor;
+
+                var player = (GameObject)PrefabUtility.InstantiatePrefab(prefab, scene);
+                player.transform.position = new Vector3(0f, -0.09f, 0f);
+                var abilities = new SerializedObject(player.GetComponent<PlayerTraversalAbilities>());
+                abilities.FindProperty("wallTraversalUnlocked").boolValue = true;
+                abilities.ApplyModifiedPropertiesWithoutUndo();
+                PrefabUtility.RecordPrefabInstancePropertyModifications(player.GetComponent<PlayerTraversalAbilities>());
+
+                CreateRectangle("Ground", new Vector2(0f, -1.5f), new Vector2(28f, 1f),
+                    new Color(0.22f, 0.28f, 0.35f), sprite, material).AddComponent<BoxCollider2D>();
+                foreach (float x in new[] { -11f, 11f })
+                    CreateRectangle(x < 0f ? "Single Left Wall" : "Single Right Wall",
+                        new Vector2(x, 7f), new Vector2(0.5f, 16f),
+                        new Color(0.36f, 0.43f, 0.5f), sprite, material).AddComponent<BoxCollider2D>();
+                foreach (float x in new[] { -2.5f, 2.5f })
+                    CreateRectangle(x < 0f ? "Corridor Left Wall" : "Corridor Right Wall",
+                        new Vector2(x, 5f), new Vector2(0.5f, 12f),
+                        new Color(0.3f, 0.5f, 0.45f), sprite, material).AddComponent<BoxCollider2D>();
+                CreateRectangle("Low Ceiling", new Vector2(7.5f, 3.5f), new Vector2(2f, 0.4f),
+                    new Color(0.45f, 0.35f, 0.3f), sprite, material).AddComponent<BoxCollider2D>();
+                if (!EditorSceneManager.SaveScene(scene, WallJumpScenePath))
+                    throw new IOException("Failed to save the wall jump scene.");
+            }
+            finally
+            {
+                if (previousScene.IsValid() && previousScene.isLoaded)
+                    UnityEngine.SceneManagement.SceneManager.SetActiveScene(previousScene);
+                EditorSceneManager.CloseScene(scene, true);
+            }
         }
 
         private static Sprite CreateSquareSprite()

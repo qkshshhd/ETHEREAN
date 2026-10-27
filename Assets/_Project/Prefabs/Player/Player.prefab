@@ -16,6 +16,10 @@ GameObject:
   - component: {fileID: 2350256352188075920}
   - component: {fileID: 2813980938980708209}
   - component: {fileID: 7087490968946619160}
+  - component: {fileID: 8996268144689430187}
+  - component: {fileID: 75395104530556688}
+  - component: {fileID: 172794126200017110}
+  - component: {fileID: 4639437701315204985}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -129,21 +133,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e886ca6a74f4520a1eafd27a5b1b6ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Etherean.Player.PlayerMovement
-  movementInputSource: {fileID: 11400000}
-  groundSensor: {fileID: 2350256352188075920}
-  wallSensor: {fileID: 2813980938980708209}
-  traversalAbilities: {fileID: 7087490968946619160}
   horizontalMoveSpeed: 6
   acceleration: 40
   deceleration: 60
-  jumpSpeed: 16
-  jumpCutMultiplier: 0.5
-  coyoteTime: 0.1
-  jumpBufferTime: 0.1
   riseGravity: 42
   fallGravity: 48
   maxFallSpeed: 20
-  wallSlideSpeed: 3
 --- !u!114 &2350256352188075920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,6 +186,71 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Etherean.Player.PlayerTraversalAbilities
   wallTraversalUnlocked: 0
+--- !u!114 &8996268144689430187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 304e557ded79ce44995f27d3667f1d74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Etherean.Player.PlayerJump
+  jumpSpeed: 16
+  jumpCutMultiplier: 0.5
+  coyoteTime: 0.1
+  jumpBufferTime: 0.1
+--- !u!114 &75395104530556688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50c8b77cca93c1a41881d2dc549d6e3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Etherean.Player.PlayerWallJump
+  wallJumpHorizontalSpeed: 8
+  wallJumpVerticalSpeed: 16
+  wallJumpControlLockTime: 0.1
+  wallCoyoteTime: 0.1
+--- !u!114 &172794126200017110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5aa81722ac1a2645b3568b9f8422604, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Etherean.Player.PlayerWallSlide
+  wallSlideSpeed: 3
+--- !u!114 &4639437701315204985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07a2bc3cb40703e41baf176f026ce0de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Etherean.Player.PlayerLocomotion
+  movementInputSource: {fileID: 11400000}
+  groundSensor: {fileID: 2350256352188075920}
+  wallSensor: {fileID: 2813980938980708209}
+  traversalAbilities: {fileID: 7087490968946619160}
+  movement: {fileID: 11400001}
+  jump: {fileID: 8996268144689430187}
+  wallJump: {fileID: 75395104530556688}
+  wallSlide: {fileID: 172794126200017110}
 --- !u!1 &100001
 GameObject:
   m_ObjectHideFlags: 0

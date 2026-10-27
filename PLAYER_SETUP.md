@@ -1,6 +1,6 @@
-# 플레이어 좌우 이동 검토 단위
+# 플레이어 이동 설정과 검토
 
-기초 이동과 점프 버퍼 구현을 완료했고, 2026-10-26 사용자가 커밋 후 다음 설계를 진행하도록 지시했다. 바닥 감지·단발 점프·코요테 타임을 유지한다. 기존 좌우 가속·감속을 유지하며 다음 기능은 사용자 검토 및 승인 후 진행한다.
+2026-10-27 승인된 책임 분리를 완료했다. 현재 PlayerMovement는 수평 이동·중력·물리 적용, PlayerJump는 공통 점프 처리, PlayerWallJump와 PlayerWallSlide는 각 벽 동작, PlayerLocomotion은 입력·센서·실행 순서를 맡는다. 새 Unity 92개 검사와 구 구현 대조를 완료했으며 사용자 구조·조작감 리뷰를 기다린다. 책임 분리 기록은 Docs/Reports/2026-10-27-locomotion-refactor.md에 있다. 이후 벽 코요테 보정을 추가하고 새 Unity 109개 검사를 완료했으며 최신 동작은 아래 벽차기 코요테 구역과 Docs/Reports/2026-10-27-wall-coyote.md를 따른다. 아래 날짜별 검증 기록은 당시 구현의 역사적 근거다.
 
 ## 실행
 
@@ -16,26 +16,31 @@ Space를 일찍 놓으면 상승 속도를 한 번 줄여 낮게 뛰고, 충분�
 
 ## Inspector에서 조절할 값
 
-Player 또는 Player 프리팹의 `Player Movement` 컴포넌트에서 조절한다.
+Player 또는 Player 프리팹의 기능별 컴포넌트에서 조절한다. 필드 이름과 저장 수치는 유지하고 소유 컴포넌트만 옮겼다.
 
-| 표시 이름 | 직렬화 필드 | 현재 프리팹 임시값 | 의미 |
-| --- | --- | --- | --- |
-| Horizontal Move Speed | `horizontalMoveSpeed` | 6u/s | 입력에 따른 목표 속도의 상한 |
-| Acceleration | `acceleration` | 40u/s² | 매초 증가할 수 있는 수평 속도 |
-| Deceleration | `deceleration` | 60u/s² | 매초 줄일 수 있는 수평 속도 |
-| Jump Speed | `jumpSpeed` | 16u/s | 점프 시작 시 설정하는 수직 속도 |
-| Jump Cut Multiplier | `jumpCutMultiplier` | 0.5 | 키 해제 시 남은 상승 속도에 한 번 곱할 배율. 0은 즉시 상승 중단, 1은 높이 조절 해제 |
-| Coyote Time | `coyoteTime` | 0.1s | 발판에서 벗어난 후 점프를 허용하는 시간 |
-| Jump Buffer Time | `jumpBufferTime` | 0.1s | 착지 전 입력을 보관하는 시간. 0이면 예약 없이 현재 물리 틱에서만 허용 |
-| Rise Gravity | `riseGravity` | 42u/s² | 상승 중 수직 속도 감소량 |
-| Fall Gravity | `fallGravity` | 48u/s² | 낙하 중 수직 속도 감소량 |
-| Max Fall Speed | `maxFallSpeed` | 20u/s | 최대 낙하 속도 |
+| 컴포넌트 | 표시 이름 | 직렬화 필드 | 현재 프리팹 임시값 | 의미 |
+| --- | --- | --- | --- | --- |
+| PlayerMovement | Horizontal Move Speed | `horizontalMoveSpeed` | 6u/s | 입력에 따른 목표 속도의 상한 |
+| PlayerMovement | Acceleration | `acceleration` | 40u/s² | 매초 증가할 수 있는 수평 속도 |
+| PlayerMovement | Deceleration | `deceleration` | 60u/s² | 매초 줄일 수 있는 수평 속도 |
+| PlayerJump | Jump Speed | `jumpSpeed` | 16u/s | 점프 시작 시 설정하는 수직 속도 |
+| PlayerJump | Jump Cut Multiplier | `jumpCutMultiplier` | 0.5 | 키 해제 시 남은 상승 속도에 한 번 곱할 배율. 0은 즉시 상승 중단, 1은 높이 조절 해제 |
+| PlayerJump | Coyote Time | `coyoteTime` | 0.1s | 발판에서 벗어난 후 점프를 허용하는 시간 |
+| PlayerJump | Jump Buffer Time | `jumpBufferTime` | 0.1s | 착지 전 입력을 보관하는 시간. 0이면 예약 없이 현재 물리 틱에서만 허용 |
+| PlayerMovement | Rise Gravity | `riseGravity` | 42u/s² | 상승 중 수직 속도 감소량 |
+| PlayerMovement | Fall Gravity | `fallGravity` | 48u/s² | 낙하 중 수직 속도 감소량 |
+| PlayerMovement | Max Fall Speed | `maxFallSpeed` | 20u/s | 최대 낙하 속도 |
+| PlayerWallJump | Wall Jump Horizontal Speed | `wallJumpHorizontalSpeed` | 8u/s | 벽 반대 방향 초기 수평 도약 |
+| PlayerWallJump | Wall Jump Vertical Speed | `wallJumpVerticalSpeed` | 16u/s | 벽차기 초기 상승 속도 |
+| PlayerWallJump | Wall Jump Control Lock Time | `wallJumpControlLockTime` | 0.1s | 수평 입력 제어 복구 전 보호 시간 |
+| PlayerWallJump | Wall Coyote Time | `wallCoyoteTime` | 0.1s | 마지막 유효 벽 접촉 후 벽차기를 허용하는 시간. 0이면 접촉 중만 허용 |
+| PlayerWallSlide | Wall Slide Speed | `wallSlideSpeed` | 3u/s | 벽 미끄러짐 낙하 상한 |
 
 가속도가 높으면 빠르게 출발하고 낮으면 천천히 속도가 붙는다. 감속도가 높으면 빨리 멈추고 낮으면 더 오래 미끄러진다. Inspector 최소값은 가속·감속 각각 0.01이다. 지상과 공중에 같은 값을 사용한다.
 
 2026-10-26 저장된 프리팹의 점프 속도 16, 상승 중력 42, 코요테 타임 0.1은 사용자가 Inspector에서 조정한 값이다. 2026-10-25 검증 당시 코요테 타임 0.2와 구분한다. 이번 버퍼 구현에서는 이 값을 변경하지 않았다. 새 컴포넌트의 코드 초기값(12, 24, 0.1)과 기존 프리팹 설정을 구분한다.
 
-`Player Ground Sensor`의 Ground Layers, Ground Check Distance(0.05u), Max Ground Angle(50도)로 바닥 판정 대상을 설정한다. 현재 지형은 Default 레이어이며 센서가 자기 충돌체와 트리거를 제외한다. 경사 각도는 표면의 법선을 기준으로 제한한다. PlayerMovement.IsGrounded는 상승 여부까지 반영한 읽기 전용 코드 프로퍼티다.
+`Player Ground Sensor`의 Ground Layers, Ground Check Distance(0.05u), Max Ground Angle(50도)로 바닥 판정 대상을 설정한다. 현재 지형은 Default 레이어이며 센서가 자기 충돌체와 트리거를 제외한다. 경사 각도는 표면의 법선을 기준으로 제한한다. PlayerLocomotion.IsGrounded는 상승 여부까지 반영한 읽기 전용 코드 프로퍼티다.
 
 ## 에셋과 연결
 
@@ -44,7 +49,7 @@ Player 또는 Player 프리팹의 `Player Movement` 컴포넌트에서 조절한
 | 파일 | 역할 |
 | --- | --- |
 | `Assets/_Project/Scenes/Tests/PlayerMovementTest.unity` | 플레이어 프리팹 인스턴스, 바닥, 양쪽 벽, 발판, 낮은 천장, 1u 눈금, 고정 카메라 |
-| `Assets/_Project/Prefabs/Player/Player.prefab` | Rigidbody2D, CapsuleCollider2D, NewInputMovementReader, PlayerGroundSensor, PlayerMovement, Visual 자식 |
+| `Assets/_Project/Prefabs/Player/Player.prefab` | Rigidbody2D, CapsuleCollider2D, NewInputMovementReader, 두 센서, PlayerTraversalAbilities, Movement/Jump/WallJump/WallSlide/Locomotion, Visual 자식 |
 | `Assets/_Project/Data/Player/PlayerMoveAction.asset` | 기존 InputSystem_Actions의 Player/Move 참조 |
 | `Assets/_Project/Data/Player/PlayerJumpAction.asset` | 기존 InputSystem_Actions의 Player/Jump 참조 |
 | `Assets/_Project/Data/Player/PlayerMovement.physicsMaterial2D` | 마찰 0, 반발력 0의 테스트용 물리 재질 |
@@ -52,38 +57,28 @@ Player 또는 Player 프리팹의 `Player Movement` 컴포넌트에서 조절한
 | `Assets/_Project/Art/Materials/MovementPlaceholder.mat` | URP 2D Unlit 표시 재질 |
 | `Assets/_Project/Scripts/Editor/PlayerMovementTestSceneBuilder.cs` | Unity Editor API로 테스트 에셋을 구성하는 에디터 전용 도구 |
 
-Player의 `NewInputMovementReader > Move Action Reference`는 PlayerMoveAction에, Jump Action Reference는 PlayerJumpAction에 연결한다. `PlayerMovement > Movement Input Source`는 같은 오브젝트의 NewInputMovementReader에, Ground Sensor는 PlayerGroundSensor에 연결한다.
+Player의 `NewInputMovementReader > Move Action Reference`는 PlayerMoveAction에, Jump Action Reference는 PlayerJumpAction에 연결한다. `PlayerLocomotion`의 Movement Input Source/Ground Sensor/Wall Sensor/Traversal Abilities는 같은 오브젝트의 Reader/두 센서/능력 컴포넌트에 연결한다. Movement/Jump/Wall Jump/Wall Slide도 같은 오브젝트의 해당 기능 컴포넌트에 연결한다.
 
 Rigidbody2D는 Dynamic, Gravity Scale 1, Linear Damping 0, Interpolate, Continuous 충돌 감지, Freeze Rotation이다. 루트 Scale은 (1,1,1), CapsuleCollider2D의 Size는 (0.8,1.8), Visual의 Scale은 (0.8,1.8,1)이다.
 
-Play 중 PlayerMovement가 활성화되면 Gravity Scale은 0이 된다. 상승·낙하 가속도를 코드에서 처리하므로 Unity 기본 중력을 중복 적용하지 않기 위해서다. PlayerMovement를 비활성화하면 원래 Gravity Scale을 복원한다. 점프 조절은 Rigidbody2D의 Gravity Scale 대신 위의 Rise/Fall Gravity를 사용한다.
+Play 중 PlayerLocomotion이 활성 Movement의 물리 제어를 시작하면 Gravity Scale은 0이 된다. 상승·낙하 가속도를 코드에서 처리하므로 Unity 기본 중력을 중복 적용하지 않기 위해서다. PlayerMovement를 비활성화하면 원래 Gravity Scale을 복원한다. 점프 조절은 Rigidbody2D의 Gravity Scale 대신 위의 Rise/Fall Gravity를 사용한다.
 
 플레이어 크기 0.8×1.8u, 이동 속도 6u/s, 카메라 Orthographic Size 5.5, 테스트 지형의 좌표는 모두 임시값이다. 기획서의 최종 확정 수치로 취급하지 않는다.
 
 ## 코드 동작
 
-- `PlayerMovementInput`은 HorizontalInput, IsJumpHeld, 한 번씩 소비하는 ConsumeJumpPress/ConsumeJumpRelease와 입력 비활성화 알림 InputDisabled를 제공하는 추상 MonoBehaviour다.
-- `NewInputMovementReader.OnEnable`은 기존 Move·Jump 참조를 검사하고 복제하여 활성화한다. Jump performed/canceled 이벤트를 보관하고 다음 물리 업데이트가 ConsumeJumpPress/ConsumeJumpRelease로 한 번씩 소비한다. IsJumpHeld로 현재 유지 상태를 전달한다. 렌더 프레임 사이의 짧은 입력을 놓치지 않고, 여러 FixedUpdate에서 같은 입력으로 반복 점프하지 않는다. OnDisable은 복제한 액션과 미소비 입력을 정리하고 NotifyInputDisabled로 이동 컴포넌트의 예약도 취소한다.
-- `PlayerGroundSensor.CheckGrounded`는 플레이어 CapsuleCollider2D를 아래로 짧게 Cast하고 레이어·트리거·표면 각도를 필터링한다. 이동은 하지 않는다.
-- `PlayerMovement.Awake`는 Rigidbody2D, 입력 소스, 바닥 센서를 확보한다. 참조가 비어 있으면 같은 오브젝트에서 찾고, 그래도 없으면 오류를 출력하고 비활성화한다.
-- `FixedUpdate`는 `HorizontalInput × horizontalMoveSpeed`를 목표 속도로 계산한다. 현재 속도보다 목표 속도의 절댓값이 작거나 입력이 반대 방향이면 감속도를, 그 외에는 가속도를 사용한다.
-- 반대 방향 입력에서는 우선 목표를 0으로 둔다. 정지한 다음 물리 업데이트부터 새 방향으로 가속한다. 방향을 즉시 뒤집지 않는다.
-- `Mathf.MoveTowards`의 최대 변화량은 `changeRate × Time.fixedDeltaTime`이다. 가속도의 단위가 u/s²이므로 이번에는 고정 시간 간격을 곱해 속도 변화량으로 바꾼다. 계산한 속도를 Rigidbody2D에 적용할 때 다시 시간 간격을 곱하지 않는다.
-- FixedUpdate는 계산한 수평 속도와 수직 속도를 합쳐 Rigidbody2D에 한 번 적용한다. 다른 컴포넌트는 속도를 변경하지 않는다.
-- CalculateVerticalSpeed는 하강/정지 중 바닥을 감지하면 착지로 처리하고 마지막 지상 시각과 점프 가능 여부를 갱신한다. 상승 중에는 발밑이 가까워도 지상으로 처리하지 않는다.
-- UpdateJumpBuffer는 새 누름 시각과 대기 중 키 해제 여부를 보관한다. 새 누름은 기존 예약 한 건을 교체하고, 유효 시간이 지나면 삭제한다. InputDisabled 알림은 물리 틱을 기다리지 않고 예약을 지운다. Movement 활성화 시 알림을 구독하고 비활성화 시 해제한다.
-- 지상 또는 유효한 코요테 타임 안에서 유효한 점프 예약이 있으면 Y속도를 Jump Speed로 설정하고 점프 권한과 코요테 기록을 즉시 소비한다. 착지 전에 이미 키를 놓은 예약은 시작 속도를 한 번 줄여 낮은 점프로 실행한다. AddForce는 사용하지 않는다.
-- 상승 중 키 해제 이벤트 또는 유지 입력 해제를 감지하면 `ApplyJumpCut`이 남은 Y속도에 Jump Cut Multiplier를 한 번 곱한다. 다음 틱부터는 중력만 적용한다. 상승 종료·착지·Movement 비활성화 시 절단 권한을 정리한다. 해제 이벤트는 다음 물리 업데이트까지 보관하므로 그 사이 재누름에도 높이가 복원되지 않는다.
-- 공중에서는 Y속도에서 Rise Gravity 또는 Fall Gravity × fixedDeltaTime을 빼고 최대 낙하 속도를 제한한다. 바닥에서는 수직 속도를 0으로 둔다. 천장 충돌은 물리 엔진이 상승을 막고 이후 낙하 계산이 이어진다.
-- Reader를 끄면 수평 입력이 0이 되어 감속한다. Movement를 끄면 `OnDisable`에서 즉시 X 속도를 0으로 만들고 Y는 유지한다. 강제 비활성화와 일반 입력 해제를 구분한다.
+- Reader는 기존 New Input System Move/Jump를 읽고 누름·해제를 보관한다. 입력 계약과 액션 에셋은 변경하지 않았다.
+- PlayerLocomotion만 FixedUpdate를 가진다. 센서 결과·입력·능력을 읽고 기능 호출 순서를 조정한다. 지상 점프 → 유효 벽차기 → 코요테 점프 순서로 한 입력을 한 번 소비한다.
+- PlayerMovement.CalculateHorizontalSpeed는 기존 가속·감속과 방향 전환을 계산한다. CalculateGravitySpeed는 상승/낙하 중력과 최대 낙하 속도를 계산한다. BeginMovement/EndMovement/ApplyVelocity만 Rigidbody2D 속도와 중력 소유권에 접근한다.
+- PlayerJump.UpdateState는 접지 시각과 공유 버퍼를 관리한다. CanGroundJump는 지상/코요테 자격, StartJump는 버퍼·점프 권한 소비, ApplyJumpCut은 한 번의 상승 절단을 담당한다. 일반 점프와 벽차기가 같은 처리를 사용한다.
+- PlayerWallJump.UpdateContacts/TryJump/IsControlLocked는 재접촉 자격·벽 선택·두 축 도약 속도·짧은 수평 제어 제한을 관리한다. 상승 중에도 사용하며, 같은 측면 접촉을 벗어나 재접촉한 후 새 점프 요청으로 반복한다.
+- PlayerWallSlide.LimitFallSpeed는 해금된 공중 하강 벽 접촉에서만 Y속도 상한을 적용한다. Reader가 꺼져도 수동 미끄러짐은 유지한다.
+- 조정자는 기능 계산 결과를 받아 Movement.ApplyVelocity를 한 번 호출한다. 다른 컴포넌트는 Rigidbody2D를 직접 읽거나 쓰지 않는다.
+- Reader.InputDisabled는 Jump 버퍼와 WallJump 제어 제한을 즉시 취소한다. Movement/Locomotion을 끄면 X속도를 즉시 0으로 만들고 원래 gravityScale을 복구한다. 재활성화 시 오래된 입력·일시 상태를 정리한다.
+- WallJump/WallSlide는 독립적으로 비활성화할 수 있다. Jump는 공통 점프 요청/높이 조절의 소유자이므로 끄면 벽차기를 포함한 점프 요청 처리를 중단한다. 지상 이동·중력·수동 미끄러짐은 유지한다.
+- 상태 조회는 PlayerLocomotion.IsGrounded/IsWallSliding을 사용한다. 최종 속도의 스탯 공급, 공격·피격·전체 제어 상태 시스템은 별도 승인 단위다.
 
-## 입력 보정과 설계 이유
-
-`Assets/InputSystem_Actions.inputactions`의 Player/Move 키보드 Composite만 `2DVector(mode=1)`로 변경했다. Digital 모드에서는 대각선 벡터를 정규화하지 않으므로 D와 W+D의 X가 모두 1이다. 이동 코드에서 X만 사용하므로 위·아래 키를 함께 눌러도 수평 속도가 감소하지 않는다. 기존 액션 ID와 게임패드 스틱 바인딩은 유지한다.
-
-입력 읽기와 물리 이동의 책임을 나누고, 이동은 구체적인 New Input System 클래스 대신 작은 추상 입력 계약에 의존한다. 이번 단계에는 새로운 런타임 클래스나 상태 머신이 필요하지 않다. 물리 속도 적용은 PlayerMovement 한 곳에서 담당한다.
-
-복제 액션은 원본 액션 맵의 Enable/Disable과 독립적이다. 향후 컷신·일시정지 입력 제어에서는 Reader 차단 또는 명시적인 입력 정책을 연결해야 한다. 현재 로컬 멀티플레이용 기기 할당은 없다.
+복제 액션은 원본 액션 맵의 Enable/Disable과 독립적이다. 향후 컷신·일시정지 입력 정책은 별도 연결하며, 현재 로컬 멀티플레이용 기기 할당은 없다.
 
 ## 검증 상태
 
@@ -129,7 +124,7 @@ Play 중 PlayerMovement가 활성화되면 Gravity Scale은 0이 된다. 상승�
 
 - PlayerWallSensor.CheckWalls는 좌우 접촉만 반환한다.
 - PlayerTraversalAbilities는 기본 잠금과 UnlockWallTraversal을 제공한다.
-- PlayerMovement.CalculateVerticalSpeed는 해금 후 하강 중 벽 접촉에서 Y속도를 -wallSlideSpeed 이상으로 제한한다. 상승 중에는 제한하지 않는다.
+- 벽 미끄러짐 당시 PlayerMovement.CalculateVerticalSpeed(현재 CalculateVelocity)는 해금 후 하강 중 벽 접촉에서 Y속도를 -wallSlideSpeed 이상으로 제한한다. 상승 중에는 제한하지 않는다.
 - Rigidbody2D의 X와 Y 속도는 PlayerMovement 한 곳에서 적용한다.
 
 프리팹은 Wall Traversal Unlocked=false, Wall Slide Speed=3이다. 별도 테스트 씬은 Assets/_Project/Scenes/Tests/PlayerWallSlideTest.unity다. Play 중 해금 체크를 끄고 켜며 A/D와 Space로 잠금·상승·미끄러짐·벽 이탈·착지를 확인한다.
@@ -138,4 +133,48 @@ Play 중 PlayerMovement가 활성화되면 Gravity Scale은 0이 된다. 상승�
 
 실제 이동 기록은 0.200초에 0.600u였다. 자세한 파일별 변경 위치, 흐름과 실제 실행 로그는 Docs/Reports/2026-10-26-wall-slide.md에 보존했다. 임시 자동 검증기는 제거했으므로 Ctrl+R만으로 검사가 자동 실행되지 않는다.
 
-벽 매달리기는 이번 범위에서 제외한다. 벽차기와 실제 F 이벤트, GameProgress 및 영구 저장은 다음 별도 승인 단위다. 최종 이동 속도를 스탯에서 공급하는 방향은 유지하되 이번 기능에서는 horizontalMoveSpeed를 임시 공급 값으로 사용한다.
+벽 매달리기는 이번 범위에서 제외한다. 벽차기는 아래 2026-10-27 승인 단위에서 완료했다. 실제 F 이벤트, GameProgress 및 영구 저장은 다음 별도 승인 단위다. 최종 이동 속도를 스탯에서 공급하는 방향은 유지하되 이번 기능에서는 horizontalMoveSpeed를 임시 공급 값으로 사용한다.
+
+## 벽차기 완료 기록 — 책임 분리 이전(2026-10-27)
+
+이 구역의 PlayerMovement 내부 메서드는 분리 이전 기록이다. 현재 기능별 위치는 위 코드 동작과 아래 최신 책임 분리 기록을 따른다.
+
+벽차기는 해금된 공중 벽 접촉에서 상승·정점·하강 중 모두 가능하다. 벽 반대 방향 X속도와 Y속도를 설정하고, 짧게 수평 제어를 보호한 뒤 기존 가속·감속으로 조작을 복구한다. 같은 측면은 센서 접촉을 벗어났다가 재접촉하고 새 점프 입력을 해야 재사용할 수 있다. 버튼 유지 자동 반복은 없다. 기존 점프 컷·버퍼를 공유하며 지상 점프 → 유효 벽차기 → 코요테 점프 순서로 한 번 소비한다.
+
+- PlayerMovement: `CalculateVelocity`, `SelectWallJumpSide`, `StartJump`, `CalculateHorizontalSpeed`, `CancelPendingInput`, `ResetWallJumpContacts`가 동작을 분담한다. Rigidbody2D 속도 적용은 FixedUpdate 한 곳을 유지한다.
+- Inspector 임시값: Wall Jump Horizontal Speed=8, Wall Jump Vertical Speed=16, Wall Jump Control Lock Time=0.1. 기존 일반 이동·점프 수치는 유지한다.
+- 전용 씬: `Assets/_Project/Scenes/Tests/PlayerWallJumpTest.unity`. 해당 인스턴스의 Wall Traversal Unlocked만 true이며 프리팹은 false다. 단독으로 열어 A/D와 Space로 중앙 두 벽 사이의 상승·왕복 및 외곽 단일 벽 재접촉을 확인한다. 상승 중 Space를 놓았다가 새로 누르면 하강을 기다리지 않고 벽차기해야 한다.
+- 생성 도구: `ETHEREAN/Tests/Create Wall Jump Scene`은 파일이 없을 때만 새 씬을 만들며 기존 씬을 덮어쓰지 않는다. 새 씬을 저장한 뒤 이전 활성 씬으로 돌아간다. 기존 파일이 있으면 Project 창에서 직접 연다.
+- Unity 검증: 65개(8 Editor + 57 실제 Play Mode) 모두 통과. 최종 7개 C# 소스의 별도 컴파일도 성공했다. 임시 검증 스크립트 2개와 .meta, 요청·중지·준비 파일은 제거했다. Ctrl+R로 자동 검사가 반복 실행되지 않는다.
+- 측정: 해당 검사에서 제어 복구 0.120초(설정 0.1초, 물리 틱 0.02초), 벽차기 유지/1틱 후 해제 높이 3.208/1.004u, 무방향 입력 수평 이동 1.256u였다. 물리 키보드 조작감과 게임패드는 사용자 직접 검토 대상이다.
+- 기존 기본 이동 씬의 테스트 해금·레이어·위치는 유지했다. 작업 중 저장된 Visual의 Y 스케일=1.8 오버라이드도 되돌리지 않았다. 별도 생성·검증 도구는 기본 씬을 저장하지 않는다.
+
+파일별 수정 위치, 실행 순서, 검증 조건과 전체 로그는 `Docs/Reports/2026-10-27-wall-jump.md`를 참고한다. 벽 매달리기·F 이벤트·영구 저장·애니메이션·VFX와 실제 B/I 게이트는 이번 기능의 완료 범위가 아니다. 사용자 리뷰 후 다음 작업을 결정한다.
+
+## 최신 책임 분리 결과 — 2026-10-27
+
+PlayerMovement는 286줄에서 80줄로 나눴다. 새 PlayerJump 99줄, PlayerWallJump 70줄, PlayerWallSlide 28줄, PlayerLocomotion 153줄이며 줄 수에는 빈 줄을 포함한다. 기능 수식과 타이밍은 유지하고 변경 이유가 다른 정책·상태의 소유를 분리한 것이며 성능 향상이나 총 코드량 감소를 의미하지 않는다.
+
+새 Unity 검사 92개(20 Editor + 72 실제 Play Mode)를 모두 통과했다. 같은 입력을 준 구 구현과 374개 물리 샘플을 비교했으며 속도·접지/미끄러짐 상태가 일치했고 위치 차이는 최대 0.000030u였다. 임시 구 구현·검증/이전 도구 4개와 .meta, 요청·준비 파일 및 임시 씬은 제거했다. 최종 11개 C# 소스의 별도 컴파일도 통과했다.
+
+기본 이동 씬의 PlayerWallJump.wallJumpHorizontalSpeed=4 오버라이드는 유지했다. 프리팹과 벽차기 씬은 8이다. 프리팹 기본 능력 잠금, 씬별 해금·레이어·위치·Visual 크기와 기존 GUID를 보존했다. 벽 미끄러짐/벽차기 씬의 저장 내용은 동일하며, 기본 이동 씬은 해당 오버라이드 대상 컴포넌트만 바뀌었다.
+
+PlayerWallJumpTest에서 위의 기능별 Inspector와 A/D·Space 조작을 직접 검토한다. 구조·조작감 리뷰가 끝나기 전에는 다음 기능으로 진행하지 않는다. 상세 파일 지도와 이전/검증 로그는 Docs/Reports/2026-10-27-locomotion-refactor.md에 있다.
+
+## 벽차기 코요테 타임 — 2026-10-27 사용자 피드백
+
+벽에서 떨어진 직후 입력이 무효가 되는 상황을 개선하기 위해 PlayerWallJump에 별도 wallCoyoteTime=0.1초를 추가했다. 현재 벽 접촉을 우선하고, 벽이 없으면 최근 유효 접촉의 시각·측면으로 도약한다. 두 이력이 유효하면 더 최근 벽을 선택하고, 시각이 같으면 방향 입력으로 선택한다. PlayerJump의 지상 coyoteTime이나 jumpBufferTime과 다른 설정이다.
+
+벽차기 발동은 양쪽 기록을 소비하므로 유예 시간 안에 재접촉 없이 추가 점프할 수 없다. 사용 직후 아직 닿아 있는 출발 벽도 기록을 갱신하지 않으며 실제 이탈·재접촉 후 다시 사용할 수 있다. 착지와 이동 상태 초기화에서 지우고, Reader.InputDisabled는 물리 틱 사이에도 즉시 지운다. 센서·능력 비활성화는 다음 물리 틱에서 기록을 취소한다.
+
+새 Unity 검사 109개(12 Editor + 97 실제 Play Mode)가 모두 통과했다. 실제 벽 이탈 후 마지막 관측에서 0.040초 뒤 누른 점프가 발동했고, 만료/0설정/소비/재접촉/비활성화 정리와 기존 이동·점프도 확인했다. 임시 도구와 .meta·마커·복제 씬을 제거하고 최종 11개 C# 소스를 별도 컴파일했다. 직접 확인은 PlayerWallJumpTest에서 벽 접촉 후 반대 방향으로 이동하고 곧바로 Space를 눌러 벽차기를 연결한다. 0이면 이전 접촉 필수 동작, 0.2이면 더 긴 유예로 비교할 수 있다. 수평 속도·중력·기존 점프 값은 바꾸지 않는다. 새 검증과 파일별 결과는 Docs/Reports/2026-10-27-wall-coyote.md를 따른다.
+
+## 640×360 / 32 PPU 실제 비교 샘플
+
+별도 `Assets/_Project/Scenes/Tests/PlayerPixelScaleTest.unity`를 단독으로 열고 Play한다. Review Camera의 Target Texture는 `Assets/_Project/Data/Player/PixelScalePreview.renderTexture`이며 같은 오브젝트의 PixelScalePreview에 카메라와 타깃이 연결돼 있다. 타깃은 640×360·Point·MSAA 1이며 실제 Game 화면 크기와 분리한다.
+
+Game 뷰를 1280×720 또는 1920×1080 고정 해상도로 설정하고 에디터 확대/축소 배율도 확인한다. OnGUI는 타깃을 2배/3배 정수 확대한다. 작은 Game 뷰에서는 1배로 잘라 보이고 안내한다. View A 버튼은 Size 5.5, View B는 5.625다. 기존 Player 입력 A/D·Space로 이동·점프한다.
+
+회색 도형은 64×64 프레임 안의 같은 60px 높이에서 2·2.5·3등신만 비교한다. 주인공 외형이나 정확한 등신/크기를 선택하지 않는다. 실제 Player의 청록 사각형과 충돌체는 기존 크기를 사용한다. B 후보에서 1.8u는57.6px, A는약58.91px다. 1px 체크무늬와1u 격자로 정적 픽셀 배율을 확인한다. 이동 좌표를 픽셀에 스냅하거나 Pixel Perfect Camera를 추가한 것은 아니므로 움직임의 가독성/흔들림을 직접 검토한다.
+
+새 Unity25개 검사(13 Editor+12 Play)와 최종13개 C# 소스의 별도 컴파일을 통과했다. 실제 카메라 캡처는 Docs/Reports/2026-10-27-pixel-scale-candidate.png와 baseline.png이며 전체 경로·로그·한계는 같은 폴더의2026-10-27-pixel-scale-unity.md에 있다. 기존 씬·프리팹·이동 코드는 변경하지 않았다. 새 생성 메뉴는 ETHEREAN/Tests/Create Pixel Scale Review Scene이며 기존 파일을 덮어쓰지 않는다.

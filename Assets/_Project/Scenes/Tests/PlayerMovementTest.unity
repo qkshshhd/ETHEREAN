@@ -262,6 +262,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 400001, guid: 3e46627fd46a4cac9d7422ce77818392, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 75395104530556688, guid: 3e46627fd46a4cac9d7422ce77818392, type: 3}
+      propertyPath: wallJumpHorizontalSpeed
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2813980938980708209, guid: 3e46627fd46a4cac9d7422ce77818392, type: 3}
       propertyPath: wallLayers.m_Bits
       value: 51
