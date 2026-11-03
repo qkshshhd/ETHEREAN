@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8090a53a9b0c84e4ba967ce4f373c481, type: 3}
+  m_Name: GroundAttack2
+  m_EditorClassIdentifier: Assembly-CSharp::Etherean.Player.PlayerAttackData
+  windupTime: 0.12
+  activeTime: 0.18
+  recoveryTime: 0.65
+  jumpCancelStart: 0.65
+  windupMoveMultiplier: 0.2
+  activeMoveMultiplier: 0.05
+  damage: 12
+  reaction: 0
+  knockback: {x: 3, y: 2}
+  comboLinkStart: 0.8
+  hitboxOffset: {x: 0.95, y: 0.8}
+  hitboxSize: {x: 1.8, y: 2.4}
+  hitboxAngle: 0
+  animationStateName: Base Layer.Attack2
+  windupEffectPrefab: {fileID: 0}
+  swingEffectPrefab: {fileID: 0}
+  hitEffectPrefab: {fileID: 0}
+  hitEffectLifetime: 1.5
