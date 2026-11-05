@@ -1,0 +1,63 @@
+Character animation validation 2026-11-05T00:32:36.9666327+09:00
+EDITOR PASS Inventory healing and input connected
+EDITOR PASS Provisional heal tuning saved
+EDITOR PASS No fabricated healing VFX
+EDITOR PASS R and dpad-up Button action
+EDITOR PASS Pickup trigger still contacts player
+EDITOR PASS Field pickup is not distance-despawned
+EDITOR PASS Body attack animation stays deferred
+EDITOR PASS Enemy-specific drop profile connected Assets/_Project/Prefabs/Enemies/Badger.prefab
+EDITOR PASS Enemy-specific drop profile connected Assets/_Project/Prefabs/Enemies/Boar.prefab
+EDITOR PASS Plain square placeholder only
+SUCCESS EDITOR 10
+PLAY PASS Full health cannot start or consume
+PLAY PASS Empty inventory cannot start
+PLAY PASS Actual R input begins healing
+PLAY PASS Healing movement is 35 percent of accepted speed3
+PLAY PASS Pause freezes healing without spending
+PLAY PASS Successful completion heals20 and consumes exactly one
+PLAY PASS Late attack and jump requests during healing never leak afterwards
+PLAY PASS Normal speed returns after completion
+PLAY PASS Inputs arriving after last physics tick are drained at healing end
+PLAY PASS Heal clamps to maximum and holding R never repeats
+PLAY PASS Valid hit accepted during healing
+PLAY PASS Hit cancels with no healing, spending or automatic restart
+PLAY PASS Valid hit cancels even when its reaction is suppressed
+PLAY PASS Rejected invulnerable hit does not cancel healing
+PLAY PASS Disabling heal input cancels without spending
+PLAY PASS Completion waits for the end of physics damage processing
+PLAY PASS Boundary hit accepted
+PLAY PASS Same-tick valid damage beats pending completion
+PLAY PASS Actual attack starts for exclusion test
+PLAY PASS Healing cannot interrupt an existing attack
+PLAY PASS Airborne press is rejected and not buffered until landing
+PLAY PASS Wall-state start policy rejects healing
+PLAY PASS Healing begins before leaving ground
+PLAY PASS Leaving ground cancels and preserves item
+PLAY PASS Disabling healing component releases action
+PLAY PASS Disabled healing leaves no forced movement
+PLAY PASS External full heal cancels without spending
+PLAY PASS Actual gamepad dpad-up starts healing
+PLAY PASS Inventory records an earlier successful consumption
+PLAY PASS Death cancels current use and retains quantity and consumption history
+PLAY PASS Same-player disable and reenable never refill items
+PLAY PASS Real trigger pickup grants once across compound colliders
+PLAY PASS Full inventory leaves pickup in the field
+PLAY PASS Standing full pickup retries on space becoming available without recursion
+PLAY PASS Stale trigger contact cannot collect an item after moving away
+PLAY PASS Inventory respects configurable capacity
+PLAY PASS Dead player cannot auto-collect
+PLAY PASS Distant offscreen field pickup remains
+PLAY PASS Far but visible monster drop remains
+PLAY PASS Far and offscreen monster drop is removed
+PLAY PASS Near but offscreen monster drop remains
+PLAY PASS Enemy-specific death drop probability 0 Assets/_Project/Prefabs/Enemies/Badger.prefab
+PLAY PASS Enemy-specific death drop probability 1 Assets/_Project/Prefabs/Enemies/Badger.prefab
+PLAY PASS Enemy pickup marked as despawnable drop
+PLAY PASS Dead enemy cannot drop twice after component reenable
+PLAY PASS Enemy-specific death drop probability 0 Assets/_Project/Prefabs/Enemies/Boar.prefab
+PLAY PASS Enemy-specific death drop probability 1 Assets/_Project/Prefabs/Enemies/Boar.prefab
+PLAY PASS Enemy pickup marked as despawnable drop
+PLAY PASS Dead enemy cannot drop twice after component reenable
+SUCCESS PLAY 49
+RESTORED
