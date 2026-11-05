@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8dfa6bf93d36ce428c6a81a0c9699c4, type: 3}
+  m_Name: BoarData
+  m_EditorClassIdentifier: Assembly-CSharp::Etherean.Enemies.BoarData
+  detectionRange: 5
+  engageRange: 4
+  homeLimit: 7
+  maximumHeightDifference: 1.25
+  returnSpeed: 1.1
+  alertTime: 0.6
+  windupTime: 0.7
+  chargeSpeed: 8
+  chargeTime: 0.9
+  recoveryTime: 0.8
+  stunTime: 1.6
+  attackCooldown: 2.6
+  damage: 12
+  knockback: {x: 5, y: 4}
+  hitboxSize: {x: 1.05, y: 0.65}
+  hitboxOffset: {x: 0.15, y: 0}
+  warningEffectPrefab: {fileID: 0}

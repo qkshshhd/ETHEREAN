@@ -1,0 +1,63 @@
+Character animation validation 2026-11-04T23:21:49.1248317+09:00
+EDITOR PASS Enemy layer and square body at player scale
+EDITOR PASS Only existing square placeholder shown
+EDITOR PASS Future art foot anchor is independent of square
+EDITOR PASS Animator and common roaming attached
+EDITOR PASS Boar data connected
+EDITOR PASS Empty animation slot ready Idle
+EDITOR PASS Empty animation slot ready Walk
+EDITOR PASS Empty animation slot ready Alert
+EDITOR PASS Empty animation slot ready Windup
+EDITOR PASS Empty animation slot ready Charge
+EDITOR PASS Empty animation slot ready Recovery
+EDITOR PASS Empty animation slot ready Stun
+EDITOR PASS Empty animation slot ready Stagger
+EDITOR PASS Empty animation slot ready Death
+EDITOR PASS Empty animation slot ready KnockdownLaunch
+EDITOR PASS Empty animation slot ready KnockdownDown
+EDITOR PASS Empty animation slot ready GetUp
+EDITOR PASS Idle default without fabricated clips
+EDITOR PASS No generated VFX or assigned warning design
+EDITOR PASS Player contact disabled, terrain contact retained
+EDITOR PASS Body attack animation remains deferred
+EDITOR PASS Boar body stays solid for terrain
+SUCCESS EDITOR 22
+PLAY PASS Outer warning waits for closer approach without armor or damage
+PLAY PASS Windup enables armor without charge damage
+PLAY PASS Windup Stagger does damage but cannot interrupt
+PLAY PASS Windup also resists Knockdown
+PLAY PASS Windup direction remains committed after player crosses
+PLAY PASS Charge begins forward with armor and active damage
+PLAY PASS Empty Charge animation state follows real AI
+PLAY PASS Charge hit applies damage and preserves action
+PLAY PASS Ledge stop closes attack and releases armor without Stun
+PLAY PASS Full-speed charge stops before ledge
+PLAY PASS Frontal wall stops charge and enters Stun immediately
+PLAY PASS Stun animation state follows wall impact
+PLAY PASS Stunned enemy still accepts damage 0
+PLAY PASS Stunned enemy still accepts damage 1
+PLAY PASS Stunned enemy still accepts damage 2
+PLAY PASS Stun hits never replace reaction or extend fixed deadline
+PLAY PASS Death overrides Stun immediately
+PLAY PASS Death animation state selected without fabricated art
+PLAY PASS Normal duration ending enters Recovery instead of Stun
+PLAY PASS Charge hits once across persistent overlap and compound colliders with zero iframe
+PLAY PASS Charge requests player Knockdown
+PLAY PASS Requested Knockdown produces real player launch and knockback
+PLAY PASS Player Knockdown eventually recovers control
+PLAY PASS Ordinary non-armored boar can Stagger
+PLAY PASS Stagger slot follows real received hit
+PLAY PASS Reaction recovery does not restart attack instantly
+PLAY PASS Lethal hit bypasses armor and cancels action
+PLAY PASS Idle wall and floor contact cannot create Stun
+PLAY PASS Disabling brain releases attack, armor and movement
+PLAY PASS Reenable cannot resume stale charge window
+PLAY PASS Swept query finds skipped player once across a 4u step
+PLAY PASS Player above charge hitbox avoids damage
+PLAY PASS Airborne death still accepts fatal damage
+PLAY PASS Dead airborne enemy falls instead of freezing in space
+PLAY PASS Shared reaction default still permits normal Stagger
+PLAY PASS Suppression blocks only reaction start
+PLAY PASS Reaction disable clears suppression
+SUCCESS PLAY 37
+RESTORED

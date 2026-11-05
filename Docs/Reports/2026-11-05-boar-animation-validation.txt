@@ -1,0 +1,206 @@
+Character animation validation 2026-11-05T01:06:17.4972552+09:00
+EDITOR PASS Idle pixel settings 1
+EDITOR PASS Idle native size and fixed foot pivot 1
+EDITOR PASS Idle pixel settings 2
+EDITOR PASS Idle native size and fixed foot pivot 2
+EDITOR PASS Idle pixel settings 3
+EDITOR PASS Idle native size and fixed foot pivot 3
+EDITOR PASS Idle pixel settings 4
+EDITOR PASS Idle native size and fixed foot pivot 4
+EDITOR PASS Idle pixel settings 5
+EDITOR PASS Idle native size and fixed foot pivot 5
+EDITOR PASS Idle pixel settings 6
+EDITOR PASS Idle native size and fixed foot pivot 6
+EDITOR PASS Idle pixel settings 7
+EDITOR PASS Idle native size and fixed foot pivot 7
+EDITOR PASS Idle pixel settings 8
+EDITOR PASS Idle native size and fixed foot pivot 8
+EDITOR PASS Idle pixel settings 9
+EDITOR PASS Idle native size and fixed foot pivot 9
+EDITOR PASS Idle pixel settings 10
+EDITOR PASS Idle native size and fixed foot pivot 10
+EDITOR PASS Idle pixel settings 11
+EDITOR PASS Idle native size and fixed foot pivot 11
+EDITOR PASS Idle pixel settings 12
+EDITOR PASS Idle native size and fixed foot pivot 12
+EDITOR PASS Idle pixel settings 13
+EDITOR PASS Idle native size and fixed foot pivot 13
+EDITOR PASS Idle pixel settings 14
+EDITOR PASS Idle native size and fixed foot pivot 14
+EDITOR PASS Idle pixel settings 15
+EDITOR PASS Idle native size and fixed foot pivot 15
+EDITOR PASS Idle pixel settings 16
+EDITOR PASS Idle native size and fixed foot pivot 16
+EDITOR PASS Idle sprite-only keys
+EDITOR PASS Idle loop policy
+EDITOR PASS Walk pixel settings 1
+EDITOR PASS Walk native size and fixed foot pivot 1
+EDITOR PASS Walk pixel settings 2
+EDITOR PASS Walk native size and fixed foot pivot 2
+EDITOR PASS Walk pixel settings 3
+EDITOR PASS Walk native size and fixed foot pivot 3
+EDITOR PASS Walk pixel settings 4
+EDITOR PASS Walk native size and fixed foot pivot 4
+EDITOR PASS Walk pixel settings 5
+EDITOR PASS Walk native size and fixed foot pivot 5
+EDITOR PASS Walk pixel settings 6
+EDITOR PASS Walk native size and fixed foot pivot 6
+EDITOR PASS Walk pixel settings 7
+EDITOR PASS Walk native size and fixed foot pivot 7
+EDITOR PASS Walk pixel settings 8
+EDITOR PASS Walk native size and fixed foot pivot 8
+EDITOR PASS Walk pixel settings 9
+EDITOR PASS Walk native size and fixed foot pivot 9
+EDITOR PASS Walk pixel settings 10
+EDITOR PASS Walk native size and fixed foot pivot 10
+EDITOR PASS Walk pixel settings 11
+EDITOR PASS Walk native size and fixed foot pivot 11
+EDITOR PASS Walk pixel settings 12
+EDITOR PASS Walk native size and fixed foot pivot 12
+EDITOR PASS Walk pixel settings 13
+EDITOR PASS Walk native size and fixed foot pivot 13
+EDITOR PASS Walk pixel settings 14
+EDITOR PASS Walk native size and fixed foot pivot 14
+EDITOR PASS Walk pixel settings 15
+EDITOR PASS Walk native size and fixed foot pivot 15
+EDITOR PASS Walk pixel settings 16
+EDITOR PASS Walk native size and fixed foot pivot 16
+EDITOR PASS Walk sprite-only keys
+EDITOR PASS Walk loop policy
+EDITOR PASS Run pixel settings 1
+EDITOR PASS Run native size and fixed foot pivot 1
+EDITOR PASS Run pixel settings 2
+EDITOR PASS Run native size and fixed foot pivot 2
+EDITOR PASS Run pixel settings 3
+EDITOR PASS Run native size and fixed foot pivot 3
+EDITOR PASS Run pixel settings 4
+EDITOR PASS Run native size and fixed foot pivot 4
+EDITOR PASS Run pixel settings 5
+EDITOR PASS Run native size and fixed foot pivot 5
+EDITOR PASS Run pixel settings 6
+EDITOR PASS Run native size and fixed foot pivot 6
+EDITOR PASS Run pixel settings 7
+EDITOR PASS Run native size and fixed foot pivot 7
+EDITOR PASS Run pixel settings 8
+EDITOR PASS Run native size and fixed foot pivot 8
+EDITOR PASS Run pixel settings 9
+EDITOR PASS Run native size and fixed foot pivot 9
+EDITOR PASS Run pixel settings 10
+EDITOR PASS Run native size and fixed foot pivot 10
+EDITOR PASS Run pixel settings 11
+EDITOR PASS Run native size and fixed foot pivot 11
+EDITOR PASS Run pixel settings 12
+EDITOR PASS Run native size and fixed foot pivot 12
+EDITOR PASS Run pixel settings 13
+EDITOR PASS Run native size and fixed foot pivot 13
+EDITOR PASS Run pixel settings 14
+EDITOR PASS Run native size and fixed foot pivot 14
+EDITOR PASS Run pixel settings 15
+EDITOR PASS Run native size and fixed foot pivot 15
+EDITOR PASS Run pixel settings 16
+EDITOR PASS Run native size and fixed foot pivot 16
+EDITOR PASS Run sprite-only keys
+EDITOR PASS Run loop policy
+EDITOR PASS Death pixel settings 1
+EDITOR PASS Death native size and fixed foot pivot 1
+EDITOR PASS Death pixel settings 2
+EDITOR PASS Death native size and fixed foot pivot 2
+EDITOR PASS Death pixel settings 3
+EDITOR PASS Death native size and fixed foot pivot 3
+EDITOR PASS Death pixel settings 4
+EDITOR PASS Death native size and fixed foot pivot 4
+EDITOR PASS Death pixel settings 5
+EDITOR PASS Death native size and fixed foot pivot 5
+EDITOR PASS Death pixel settings 6
+EDITOR PASS Death native size and fixed foot pivot 6
+EDITOR PASS Death pixel settings 7
+EDITOR PASS Death native size and fixed foot pivot 7
+EDITOR PASS Death pixel settings 8
+EDITOR PASS Death native size and fixed foot pivot 8
+EDITOR PASS Death pixel settings 9
+EDITOR PASS Death native size and fixed foot pivot 9
+EDITOR PASS Death pixel settings 10
+EDITOR PASS Death native size and fixed foot pivot 10
+EDITOR PASS Death pixel settings 11
+EDITOR PASS Death native size and fixed foot pivot 11
+EDITOR PASS Death pixel settings 12
+EDITOR PASS Death native size and fixed foot pivot 12
+EDITOR PASS Death pixel settings 13
+EDITOR PASS Death native size and fixed foot pivot 13
+EDITOR PASS Death pixel settings 14
+EDITOR PASS Death native size and fixed foot pivot 14
+EDITOR PASS Death pixel settings 15
+EDITOR PASS Death native size and fixed foot pivot 15
+EDITOR PASS Death pixel settings 16
+EDITOR PASS Death native size and fixed foot pivot 16
+EDITOR PASS Death sprite-only keys
+EDITOR PASS Death loop policy
+EDITOR PASS State clip mapping Idle
+EDITOR PASS State clip mapping Walk
+EDITOR PASS State clip mapping Alert
+EDITOR PASS State clip mapping Windup
+EDITOR PASS State clip mapping Charge
+EDITOR PASS State clip mapping Recovery
+EDITOR PASS State clip mapping Stun
+EDITOR PASS State clip mapping Stagger
+EDITOR PASS State clip mapping Death
+EDITOR PASS State clip mapping KnockdownLaunch
+EDITOR PASS State clip mapping KnockdownDown
+EDITOR PASS State clip mapping GetUp
+EDITOR PASS Art shown and square hidden
+EDITOR PASS Physics and foot transform unchanged
+EDITOR PASS Right-facing source calibration set
+EDITOR PASS No temporary VFX design
+SUCCESS EDITOR 152
+PLAY PASS Outer warning waits for closer approach without armor or damage
+PLAY PASS Windup enables armor without charge damage
+PLAY PASS Windup Stagger does damage but cannot interrupt
+PLAY PASS Windup also resists Knockdown
+PLAY PASS Windup direction remains committed after player crosses
+PLAY PASS Charge begins forward with armor and active damage
+PLAY PASS Run-backed Charge state follows real AI
+PLAY PASS Charge hit applies damage and preserves action
+PLAY PASS Ledge stop closes attack and releases armor without Stun
+PLAY PASS Full-speed charge stops before ledge
+PLAY PASS Frontal wall stops charge and enters Stun immediately
+PLAY PASS Stun animation state follows wall impact
+PLAY PASS Stunned enemy still accepts damage 0
+PLAY PASS Stunned enemy still accepts damage 1
+PLAY PASS Stunned enemy still accepts damage 2
+PLAY PASS Stun hits never replace reaction or extend fixed deadline
+PLAY PASS Death overrides Stun immediately
+PLAY PASS Provided Death state follows real death
+PLAY PASS Normal duration ending enters Recovery instead of Stun
+PLAY PASS Charge hits once across persistent overlap and compound colliders with zero iframe
+PLAY PASS Charge requests player Knockdown
+PLAY PASS Requested Knockdown produces real player launch and knockback
+PLAY PASS Player Knockdown eventually recovers control
+PLAY PASS Ordinary non-armored boar can Stagger
+PLAY PASS Stagger slot follows real received hit
+PLAY PASS Reaction recovery does not restart attack instantly
+PLAY PASS Lethal hit bypasses armor and cancels action
+PLAY PASS Idle wall and floor contact cannot create Stun
+PLAY PASS Disabling brain releases attack, armor and movement
+PLAY PASS Reenable cannot resume stale charge window
+PLAY PASS Swept query finds skipped player once across a 4u step
+PLAY PASS Player above charge hitbox avoids damage
+PLAY PASS Airborne death still accepts fatal damage
+PLAY PASS Dead airborne enemy falls instead of freezing in space
+PLAY PASS Real home roaming advances supplied Walk
+PLAY PASS Logical right displays unflipped source
+PLAY PASS Idle progresses without restarting
+PLAY PASS Logical left mirrors source
+PLAY PASS Neutral first pose held for Windup
+PLAY PASS Neutral first pose held for Stun
+PLAY PASS Recovery reuses looping Idle
+PLAY PASS Charge uses Run with ordinary playback speed
+PLAY PASS Run loops instead of stretching to charge duration
+PLAY PASS State changes never alter art transform
+PLAY PASS Actual death selects supplied Death
+PLAY PASS Death advances through supplied frames
+PLAY PASS Death holds provided last frame
+PLAY PASS Shared reaction default still permits normal Stagger
+PLAY PASS Suppression blocks only reaction start
+PLAY PASS Reaction disable clears suppression
+SUCCESS PLAY 50
+RESTORED
