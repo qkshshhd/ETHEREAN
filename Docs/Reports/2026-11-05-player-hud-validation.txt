@@ -1,0 +1,23 @@
+PASS HUD 23 unique serialized objects
+PASS All HUD local serialized references resolve
+PASS Overlay / pixel perfect
+PASS Reference size 640x360
+PASS HUD does not block input
+PASS Healing progress hidden initially
+PASS Optional art slots empty
+PASS New GUID PlayerHud.cs
+PASS New GUID PlayerHudView.cs
+PASS New GUID PlayerHudBuilder.cs
+PASS New GUID PlayerHud.prefab
+PASS Player bytes unchanged excluding nested HUD addition
+PASS Exactly one nested HUD on Player root
+PASS Nested prefab GUID points to HUD
+PASS No old Assets Packages Settings missing
+PASS Only Player prefab changed among old Assets Packages Settings
+PASS HUD reads without gameplay writes
+PASS HUD presentation after default healing LateUpdate
+PASS No custom project Gizmos
+Static text/reference checks: 19
+Standalone Runtime47 / Editor15 C# compilation: PASS exit0.
+Unity native launch: FAIL before project import (WMI/environment assertions).
+Unity prefab deserialization / Play Mode / visual tests: NOT RUN.

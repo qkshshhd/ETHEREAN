@@ -1,0 +1,29 @@
+HUD TMP native validation
+EDITOR PASS Content/HealthText TMP font and material
+EDITOR PASS Content/ItemCountText TMP font and material
+EDITOR PASS Content/HealingProgress/ProgressText TMP font and material
+EDITOR PASS No legacy text
+EDITOR PASS Three Canvas TMP labels
+EDITOR PASS Builder rerun preserves HUD
+EDITOR PASS Player still has one nested HUD
+EDITOR PASS Nested Player TMP references loaded
+SUCCESS EDITOR 8
+PLAY PASS Initial real health display
+PLAY PASS Initial real inventory display
+PLAY PASS Damage reflected
+PLAY PASS Pickup API reflected
+PLAY PASS Heal and consumption reflected
+PLAY PASS Controlled progress view
+PLAY PASS TMP glyph geometry HealthText
+PLAY PASS TMP glyph geometry ItemCountText
+PLAY PASS TMP glyph geometry ProgressText
+PLAY PASS Idle hides progress
+PLAY PASS Disable hides HUD
+PLAY PASS Enable restores real state
+PLAY PASS Death shows zero
+SUCCESS PLAY 13
+RESTORED
+Final permanent Runtime47 / Editor15 compilation exit0.
+Existing changes: HUD prefab, PlayerHudView.cs, PlayerHudBuilder.cs only. No missing old assets.
+All six RectTransform layout settings preserved.
+Temporary scripts/meta/markers/copied scene removed.

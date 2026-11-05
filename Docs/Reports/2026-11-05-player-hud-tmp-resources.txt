@@ -1,0 +1,78 @@
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile-2-Pass.shader
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile-2-Pass.shader.meta
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Shaders\TMP_SDF-URP Unlit.shadergraph
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Shaders\TMP_SDF-URP Unlit.shadergraph.meta
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader.meta
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader.meta
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader.meta
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Resources
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Resources.meta
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Resources\Fonts & Materials\LiberationSans SDF - Fallback.asset
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Resources\Fonts & Materials\LiberationSans SDF - Fallback.asset.meta
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc.meta
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Resources\TMP Settings.asset
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Resources\TMP Settings.asset.meta
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Shaders\TMPro.cginc
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Shaders\TMPro.cginc.meta
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader.meta
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Resources\Style Sheets
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Resources\Style Sheets.meta
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Shaders\TMP_SDF.shader
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Shaders\TMP_SDF.shader.meta
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Fonts
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Fonts.meta
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt.meta
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Resources\Fonts & Materials
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Resources\Fonts & Materials.meta
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Resources\Fonts & Materials\LiberationSans SDF - Outline.mat
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Resources\Fonts & Materials\LiberationSans SDF - Outline.mat.meta
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader.meta
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Resources\Fonts & Materials\LiberationSans SDF.asset
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Resources\Fonts & Materials\LiberationSans SDF.asset.meta
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Shaders\SDFFunctions.hlsl
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Shaders\SDFFunctions.hlsl.meta
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader.meta
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Shaders\TMP_SDF-URP Lit.shadergraph
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Shaders\TMP_SDF-URP Lit.shadergraph.meta
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader.meta
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc.meta
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader.meta
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Shaders\TMP_SDF-HDRP LIT.shadergraph
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Shaders\TMP_SDF-HDRP LIT.shadergraph.meta
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Shaders\TMP_Sprite.shader
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Shaders\TMP_Sprite.shader.meta
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt.meta
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc.meta
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader.meta
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Fonts\LiberationSans.ttf
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Fonts\LiberationSans.ttf.meta
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Resources\Fonts & Materials\LiberationSans SDF - Drop Shadow.mat
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Resources\Fonts & Materials\LiberationSans SDF - Drop Shadow.mat.meta
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Shaders
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Shaders.meta
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro.meta
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Shaders\TMP_SDF-HDRP UNLIT.shadergraph
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Shaders\TMP_SDF-HDRP UNLIT.shadergraph.meta
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader.meta
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Resources\Style Sheets\Default Style Sheet.asset
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Resources\Style Sheets\Default Style Sheet.asset.meta
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt.meta
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader
+C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader.meta
