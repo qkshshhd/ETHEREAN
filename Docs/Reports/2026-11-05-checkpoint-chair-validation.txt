@@ -1,0 +1,83 @@
+Checkpoint native validation
+EDITOR PASS Missing slot starts new game
+EDITOR PASS JSON initial atomic save
+EDITOR PASS JSON fresh-service round trip
+EDITOR PASS Replacement keeps backup
+EDITOR PASS Corrupt primary recovers valid backup
+EDITOR PASS Future primary protected from rollback
+EDITOR PASS Protected slot not overwritten
+EDITOR PASS Invalid negative snapshot rejected
+EDITOR PASS Malformed schema protected
+EDITOR PASS Checkpoint trigger
+EDITOR PASS Editable checkpoint children
+EDITOR PASS Editable chair seat anchor
+EDITOR PASS No checkpoint design or VFX
+EDITOR PASS Player persistence links
+EDITOR PASS Deferred attack animation retained
+EDITOR PASS User movement speed retained
+EDITOR PASS Isolated scene copy
+SUCCESS EDITOR 17
+PLAY PASS Session ready
+PLAY PASS New game default checkpoint
+PLAY PASS Default spawn does not create save or seat player
+PLAY PASS Scene anchors spawn both enemies
+PLAY PASS Actual trigger partially collects at capacity
+PLAY PASS Consumed history advances
+PLAY PASS Progress enables actor abilities
+PLAY PASS Enemy killed before checkpoint
+PLAY PASS Interact outside chair does nothing
+PLAY PASS Approach and previously held Interact do not save
+PLAY PASS Approach does not heal or reset world
+PLAY PASS Fresh Interact seats and saves at second checkpoint
+PLAY PASS Player snaps to seat anchor
+PLAY PASS Seated movement and jump stay locked
+PLAY PASS Second Interact stands without saving again
+PLAY PASS Checkpoint fully heals
+PLAY PASS Checkpoint does not refill or roll back items
+PLAY PASS Dead enemy replaced with full-health prefab
+PLAY PASS Enemy returns to authored anchor
+PLAY PASS Checkpoint clears monster drops
+PLAY PASS Field pickup state retained on rest
+PLAY PASS Fresh enemy reactions cleared
+PLAY PASS Boar armor and cooldown reset
+PLAY PASS Spawn protection rejects immediate hit
+PLAY PASS Protection expires and normal hit works
+PLAY PASS Live file includes latest inventory and checkpoint
+PLAY PASS JSON omits transient position and velocity
+PLAY PASS Death automatically revives
+PLAY PASS Death returns to checkpoint
+PLAY PASS Death retains quantity and consumption
+PLAY PASS Respawn clears reactions attacks and healing
+PLAY PASS Respawn clears horizontal knockback
+PLAY PASS Death retains WeaponUnlocked
+PLAY PASS Death retains WallTraversalUnlocked
+PLAY PASS Death retains BoarIntroSeen
+PLAY PASS Death retains BoarEncounterCleared
+PLAY PASS Death retains DExitOpened
+PLAY PASS Death retains ShortcutCEOpened
+PLAY PASS Death retains ShortcutHBOpened
+PLAY PASS Death retains ForestExitReached
+PLAY PASS Unchanged idle frames do not rewrite JSON
+SUCCESS PLAY PHASE1 41
+PLAY PASS Session ready
+PLAY PASS Reentry restores checkpoint ID
+PLAY PASS Reentry starts standing
+PLAY PASS Fresh Play starts at checkpoint, not last position
+PLAY PASS Fresh Play retains items and consumption
+PLAY PASS Fresh Play retains WeaponUnlocked
+PLAY PASS Fresh Play retains WallTraversalUnlocked
+PLAY PASS Fresh Play retains BoarIntroSeen
+PLAY PASS Fresh Play retains BoarEncounterCleared
+PLAY PASS Fresh Play retains DExitOpened
+PLAY PASS Fresh Play retains ShortcutCEOpened
+PLAY PASS Fresh Play retains ShortcutHBOpened
+PLAY PASS Fresh Play retains ForestExitReached
+PLAY PASS Fresh actor abilities restored
+PLAY PASS Partial field quantity restored
+PLAY PASS Reentry restores full health
+PLAY PASS Reentry enemies fresh
+PLAY PASS Reentry pickup uses saved remainder without duplication
+PLAY PASS Unseated changes stay in memory until sitting
+PLAY PASS Updated remainder and count saved together
+SUCCESS PLAY PHASE2 20
+RESTORED

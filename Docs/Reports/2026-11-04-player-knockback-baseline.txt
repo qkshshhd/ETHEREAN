@@ -1,0 +1,34 @@
+Character animation validation 2026-11-04T00:19:38.4318325+09:00
+EDITOR PASS Player receiver exists
+EDITOR PASS Player reaction exists
+EDITOR PASS Coordinator exists
+EDITOR PASS Player speed preserved
+SUCCESS EDITOR 4
+PLAY PASS Controlled stagger accepted by real player receiver
+DIRECT x=0.128 y=0.02719998 peakVx=1.3 body=Dynamic collider=Center: (3.12, 0.47, 0.00), Extents: (0.25, 0.44, 0.00)
+PLAY PASS Controlled real physics knockback exists
+TRACE side=-1 state=Alert player=(0.15, 0.91) enemy=(1.00, 0.36) facing=-1 bounds=Center: (0.15, 0.45, 0.00), Extents: (0.25, 0.44, 0.00) layer=8 hp=50 receiver=True target=Player (Etherean.Combat.CombatHealth)
+TRACE side=-1 state=Alert player=(0.15, 0.91) enemy=(1.00, 0.36) facing=-1 bounds=Center: (0.15, 0.45, 0.00), Extents: (0.25, 0.44, 0.00) layer=8 hp=50 receiver=True target=Player (Etherean.Combat.CombatHealth)
+ACTIVE mask=0 open=True hits=0 pos=(1.00, 0.36, 0.00) invuln=0.15 now=1.639999
+ACTIVE mask=0 open=True hits=0 pos=(1.00, 0.36, 0.00) invuln=0.15 now=1.659999
+ACTIVE mask=0 open=True hits=0 pos=(1.00, 0.36, 0.00) invuln=0.15 now=1.679999
+ACTIVE mask=0 open=True hits=0 pos=(1.00, 0.36, 0.00) invuln=0.15 now=1.699999
+ACTIVE mask=0 open=True hits=0 pos=(1.00, 0.36, 0.00) invuln=0.15 now=1.719999
+ACTIVE mask=0 open=True hits=0 pos=(1.00, 0.36, 0.00) invuln=0.15 now=1.739999
+TRACE side=-1 state=Recovery player=(0.15, 0.91) enemy=(1.00, 0.36) facing=-1 bounds=Center: (0.15, 0.45, 0.00), Extents: (0.25, 0.44, 0.00) layer=8 hp=50 receiver=True target=Player (Etherean.Combat.CombatHealth)
+TRACE side=-1 state=Cooldown player=(0.15, 0.91) enemy=(1.00, 0.36) facing=-1 bounds=Center: (0.15, 0.45, 0.00), Extents: (0.25, 0.44, 0.00) layer=8 hp=50 receiver=True target=Player (Etherean.Combat.CombatHealth)
+TRACE side=-1 state=Cooldown player=(0.15, 0.91) enemy=(1.00, 0.36) facing=-1 bounds=Center: (0.15, 0.45, 0.00), Extents: (0.25, 0.44, 0.00) layer=8 hp=50 receiver=True target=Player (Etherean.Combat.CombatHealth)
+TRACE side=-1 state=Windup player=(0.15, 0.91) enemy=(1.00, 0.36) facing=-1 bounds=Center: (0.15, 0.45, 0.00), Extents: (0.25, 0.44, 0.00) layer=8 hp=50 receiver=True target=Player (Etherean.Combat.CombatHealth)
+ACTIVE mask=0 open=True hits=0 pos=(1.00, 0.36, 0.00) invuln=0.15 now=3.679999
+ACTIVE mask=0 open=True hits=0 pos=(1.00, 0.36, 0.00) invuln=0.15 now=3.699999
+ACTIVE mask=0 open=True hits=0 pos=(1.00, 0.36, 0.00) invuln=0.15 now=3.719999
+ACTIVE mask=0 open=True hits=0 pos=(1.00, 0.36, 0.00) invuln=0.15 now=3.739999
+ACTIVE mask=0 open=True hits=0 pos=(1.00, 0.36, 0.00) invuln=0.15 now=3.759999
+ACTIVE mask=0 open=True hits=0 pos=(1.00, 0.36, 0.00) invuln=0.15 now=3.779999
+QUERY count=1 attackEnabled=True
+MANUAL SAMPLE count=1 old=1
+PLAY FAIL System.Exception: Actual badger strike received side -1 step=0 phase=None
+  at Etherean.Player.BadgerAnimationValidationDriver.Check (System.Boolean value, System.String label) [0x00003] in C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\_Project\Scripts\Runtime\Player\BadgerAnimationValidationDriver.cs:136 
+  at Etherean.Player.BadgerAnimationValidationDriver+<Checks>d__18.MoveNext () [0x009db] in C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\_Project\Scripts\Runtime\Player\BadgerAnimationValidationDriver.cs:97 
+  at Etherean.Player.BadgerAnimationValidationDriver+<Start>d__15.MoveNext () [0x002ba] in C:\Users\pjw\OneDrive\Desktop\UnityGithub\ETHEREAN\Assets\_Project\Scripts\Runtime\Player\BadgerAnimationValidationDriver.cs:61 
+RESTORED

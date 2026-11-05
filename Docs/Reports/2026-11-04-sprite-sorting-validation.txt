@@ -1,0 +1,28 @@
+Character animation validation 2026-11-04T17:02:14.2931286+09:00
+EDITOR PASS Actor prefab sorting layers assigned
+EDITOR PASS World Enemy Player hierarchy explicit
+EDITOR PASS Prefab within-layer order consistent
+EDITOR PASS Old placeholder renderers remain hidden
+EDITOR PASS No depth-write material conflict
+EDITOR PASS Idle only animates sprite, not render order
+EDITOR PASS Run only animates sprite, not render order
+EDITOR PASS Walk only animates sprite, not render order
+EDITOR PASS Attack only animates sprite, not render order
+EDITOR PASS Death only animates sprite, not render order
+EDITOR PASS Idle only animates sprite, not render order
+EDITOR PASS Walk only animates sprite, not render order
+SUCCESS EDITOR 12
+PLAY PASS Actual player movement animation advances
+PLAY PASS Movement animation preserves assigned layers
+PLAY PASS Actual enemy attack phases keep consistent sorting
+PLAY PASS Rendered front character stable across Idle / Idle frames
+PLAY PASS Rendered front character stable across Walk / Idle frames
+PLAY PASS Rendered front character stable across Run / Idle frames
+PLAY PASS Rendered front character stable across Idle / Walk frames
+PLAY PASS Rendered front character stable across Idle / Attack frames
+PLAY PASS Rendered front character stable across Idle / Death frames
+PLAY PASS Every controlled sprite frame pair contains verified opaque overlap
+PLAY PASS All overlapped opaque pixels match player-in-front reference
+RENDER samples=96 overlapSamples=96 opaquePixels=119764 mismatches=0
+SUCCESS PLAY 11
+RESTORED

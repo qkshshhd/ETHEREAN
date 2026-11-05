@@ -1,0 +1,30 @@
+Character animation validation 2026-11-04T16:49:54.4517837+09:00
+EDITOR PASS Existing numeric layers have names
+EDITOR PASS Player Enemy physical collision disabled
+EDITOR PASS Both terrain collision pairs retained
+EDITOR PASS Scene actor layers retained
+EDITOR PASS Both solid body colliders remain active
+EDITOR PASS Player attack still queries enemy layer
+EDITOR PASS Enemy attack still queries player layer
+SUCCESS EDITOR 7
+PLAY PASS Dynamic player passes through enemy from left
+PLAY PASS Passing creates no body contact or enemy push
+PLAY PASS Passing preserves grounding and causes no contact damage
+PLAY PASS Dynamic player passes through enemy from right
+PLAY PASS Bodies can overlap without physical contact
+PLAY PASS Independent overlap queries still find both ignored bodies
+PLAY PASS Enemy overlap is not ground or wall traversal contact
+PLAY PASS Player remains blocked by terrain wall
+PLAY PASS Enemy still detects terrain wall
+PLAY PASS Enemy remains physically blocked by terrain wall
+PLAY PASS Player falls and lands on real terrain
+PLAY PASS Enemy falls and lands on real terrain
+PLAY PASS Enemy still detects nearby player without body collisions
+PLAY PASS Actual enemy attack still damages player
+PLAY PASS Actual enemy attack still causes physical knockback
+PLAY PASS Actual attack input still damages enemy once
+PLAY PASS Player attack completes normally
+PLAY PASS Collision exclusion persists with solid colliders
+METRIC enemy knockback=0.486000 playerDamage=8 enemyDamage=10
+SUCCESS PLAY 18
+RESTORED

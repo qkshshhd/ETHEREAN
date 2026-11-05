@@ -1,0 +1,54 @@
+Character animation validation 2026-11-04T00:28:33.7709045+09:00
+EDITOR PASS Player receiver exists
+EDITOR PASS Player reaction exists
+EDITOR PASS Coordinator exists
+EDITOR PASS Player speed preserved
+EDITOR PASS User attack range and cooldown preserved
+EDITOR PASS Clearer knockback tuning connected
+EDITOR PASS Saved scene detects actual player layer
+SUCCESS EDITOR 7
+PLAY PASS Actual AI strike reaches player case 0
+PLAY PASS Actual payload pushes away and upward case 0
+MEASURE case=0 x=0.520000 y=0.123200 peakVx=3.500000 payload=(-3.50, 2.50)
+PLAY PASS One damage application per actual attack case 0
+PLAY PASS Visible real physics knockback case 0
+PLAY PASS Movement cannot reverse knockback during stagger case 0
+PLAY PASS Stagger ends normally case 0
+PLAY PASS Actual AI strike reaches player case 1
+PLAY PASS Actual payload pushes away and upward case 1
+MEASURE case=1 x=0.520000 y=0.123200 peakVx=3.500000 payload=(3.50, 2.50)
+PLAY PASS One damage application per actual attack case 1
+PLAY PASS Visible real physics knockback case 1
+PLAY PASS Movement cannot reverse knockback during stagger case 1
+PLAY PASS Stagger ends normally case 1
+PLAY PASS Actual AI strike reaches player case 2
+PLAY PASS Actual payload pushes away and upward case 2
+MEASURE case=2 x=0.486000 y=0.123200 peakVx=3.500000 payload=(3.50, 2.50)
+PLAY PASS One damage application per actual attack case 2
+PLAY PASS Visible real physics knockback case 2
+PLAY PASS Movement cannot reverse knockback during stagger case 2
+PLAY PASS Stagger ends normally case 2
+PLAY PASS Directional input restored after stagger case 2
+PLAY PASS Actual AI strike reaches player case 3
+PLAY PASS Actual payload pushes away and upward case 3
+MEASURE case=3 x=0.486000 y=0.123200 peakVx=3.500000 payload=(3.50, 2.50)
+PLAY PASS One damage application per actual attack case 3
+PLAY PASS Visible real physics knockback case 3
+PLAY PASS Movement cannot reverse knockback during stagger case 3
+PLAY PASS Stagger ends normally case 3
+PLAY PASS Directional input restored after stagger case 3
+PLAY PASS Actual AI strike reaches player case 4
+PLAY PASS Actual payload pushes away and upward case 4
+MEASURE case=4 x=0.051533 y=0.123200 peakVx=0.000000 payload=(3.50, 2.50)
+PLAY PASS One damage application per actual attack case 4
+PLAY PASS Knockback respects solid wall
+PLAY PASS Stagger ends normally case 4
+PLAY PASS Actual AI strike reaches player case 5
+PLAY PASS Actual payload pushes away and upward case 5
+MEASURE case=5 x=0.486000 y=0.123200 peakVx=3.500000 payload=(3.50, 2.50)
+PLAY PASS One damage application per actual attack case 5
+PLAY PASS Visible real physics knockback case 5
+PLAY PASS Movement cannot reverse knockback during stagger case 5
+PLAY PASS Stagger ends normally case 5
+SUCCESS PLAY 37
+RESTORED
