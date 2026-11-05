@@ -1,0 +1,125 @@
+Character animation validation 2026-11-04T20:29:36.1594438+09:00
+EDITOR PASS Idle pixel settings 1
+EDITOR PASS Idle pixel settings 2
+EDITOR PASS Idle pixel settings 3
+EDITOR PASS Idle pixel settings 4
+EDITOR PASS Idle pixel settings 5
+EDITOR PASS Idle pixel settings 6
+EDITOR PASS Idle pixel settings 7
+EDITOR PASS Idle pixel settings 8
+EDITOR PASS Idle pixel settings 9
+EDITOR PASS Idle pixel settings 10
+EDITOR PASS Idle pixel settings 11
+EDITOR PASS Idle pixel settings 12
+EDITOR PASS Idle pixel settings 13
+EDITOR PASS Idle pixel settings 14
+EDITOR PASS Idle pixel settings 15
+EDITOR PASS Idle pixel settings 16
+EDITOR PASS Idle sprite-only clip and endpoint
+EDITOR PASS Idle loop policy
+EDITOR PASS Walk pixel settings 1
+EDITOR PASS Walk fixed calibrated pixel pivot 1
+EDITOR PASS Walk pixel settings 2
+EDITOR PASS Walk fixed calibrated pixel pivot 2
+EDITOR PASS Walk pixel settings 3
+EDITOR PASS Walk fixed calibrated pixel pivot 3
+EDITOR PASS Walk pixel settings 4
+EDITOR PASS Walk fixed calibrated pixel pivot 4
+EDITOR PASS Walk pixel settings 5
+EDITOR PASS Walk fixed calibrated pixel pivot 5
+EDITOR PASS Walk pixel settings 6
+EDITOR PASS Walk fixed calibrated pixel pivot 6
+EDITOR PASS Walk pixel settings 7
+EDITOR PASS Walk fixed calibrated pixel pivot 7
+EDITOR PASS Walk pixel settings 8
+EDITOR PASS Walk fixed calibrated pixel pivot 8
+EDITOR PASS Walk pixel settings 9
+EDITOR PASS Walk fixed calibrated pixel pivot 9
+EDITOR PASS Walk pixel settings 10
+EDITOR PASS Walk fixed calibrated pixel pivot 10
+EDITOR PASS Walk pixel settings 11
+EDITOR PASS Walk fixed calibrated pixel pivot 11
+EDITOR PASS Walk pixel settings 12
+EDITOR PASS Walk fixed calibrated pixel pivot 12
+EDITOR PASS Walk pixel settings 13
+EDITOR PASS Walk fixed calibrated pixel pivot 13
+EDITOR PASS Walk pixel settings 14
+EDITOR PASS Walk fixed calibrated pixel pivot 14
+EDITOR PASS Walk pixel settings 15
+EDITOR PASS Walk fixed calibrated pixel pivot 15
+EDITOR PASS Walk pixel settings 16
+EDITOR PASS Walk fixed calibrated pixel pivot 16
+EDITOR PASS Walk sprite-only clip and endpoint
+EDITOR PASS Walk loop policy
+EDITOR PASS Attack pixel settings 1
+EDITOR PASS Attack pixel settings 2
+EDITOR PASS Attack pixel settings 3
+EDITOR PASS Attack pixel settings 4
+EDITOR PASS Attack pixel settings 5
+EDITOR PASS Attack pixel settings 6
+EDITOR PASS Attack pixel settings 7
+EDITOR PASS Attack pixel settings 8
+EDITOR PASS Attack pixel settings 9
+EDITOR PASS Attack pixel settings 10
+EDITOR PASS Attack pixel settings 11
+EDITOR PASS Attack pixel settings 12
+EDITOR PASS Attack pixel settings 13
+EDITOR PASS Attack pixel settings 14
+EDITOR PASS Attack pixel settings 15
+EDITOR PASS Attack pixel settings 16
+EDITOR PASS Attack sprite-only clip and endpoint
+EDITOR PASS Attack loop policy
+EDITOR PASS Death pixel settings 1
+EDITOR PASS Death fixed calibrated pixel pivot 1
+EDITOR PASS Death pixel settings 2
+EDITOR PASS Death fixed calibrated pixel pivot 2
+EDITOR PASS Death pixel settings 3
+EDITOR PASS Death fixed calibrated pixel pivot 3
+EDITOR PASS Death pixel settings 4
+EDITOR PASS Death fixed calibrated pixel pivot 4
+EDITOR PASS Death pixel settings 5
+EDITOR PASS Death fixed calibrated pixel pivot 5
+EDITOR PASS Death pixel settings 6
+EDITOR PASS Death fixed calibrated pixel pivot 6
+EDITOR PASS Death pixel settings 7
+EDITOR PASS Death fixed calibrated pixel pivot 7
+EDITOR PASS Death pixel settings 8
+EDITOR PASS Death fixed calibrated pixel pivot 8
+EDITOR PASS Death pixel settings 9
+EDITOR PASS Death fixed calibrated pixel pivot 9
+EDITOR PASS Death pixel settings 10
+EDITOR PASS Death fixed calibrated pixel pivot 10
+EDITOR PASS Death pixel settings 11
+EDITOR PASS Death fixed calibrated pixel pivot 11
+EDITOR PASS Death pixel settings 12
+EDITOR PASS Death fixed calibrated pixel pivot 12
+EDITOR PASS Death pixel settings 13
+EDITOR PASS Death fixed calibrated pixel pivot 13
+EDITOR PASS Death pixel settings 14
+EDITOR PASS Death fixed calibrated pixel pivot 14
+EDITOR PASS Death pixel settings 15
+EDITOR PASS Death fixed calibrated pixel pivot 15
+EDITOR PASS Death pixel settings 16
+EDITOR PASS Death fixed calibrated pixel pivot 16
+EDITOR PASS Death sprite-only clip and endpoint
+EDITOR PASS Death loop policy
+EDITOR PASS New presenter connected and placeholder hidden
+EDITOR PASS Physics size preserved and art native scale
+EDITOR PASS Existing facing calibration preserved
+SUCCESS EDITOR 107
+PLAY PASS Real roaming chooses Walk
+PLAY PASS Replacement Walk frames advance in actual roaming
+PLAY PASS Real roaming still moves the physics body
+PLAY PASS Existing facing calibration stays consistent
+PLAY PASS Idle samples never animate root/visual position or scale
+PLAY PASS Walk samples never animate root/visual position or scale
+PLAY PASS Attack samples never animate root/visual position or scale
+PLAY PASS Death samples never animate root/visual position or scale
+PLAY PASS Idle restored before death
+PLAY PASS Actual death switches to new Death clip
+PLAY PASS Replacement Death advances
+PLAY PASS Death reaches supplied last frame
+PLAY PASS Death holds its last frame without looping
+PLAY PASS Death keeps transform anchor and scale
+SUCCESS PLAY 14
+RESTORED

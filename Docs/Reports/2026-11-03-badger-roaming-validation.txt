@@ -1,0 +1,113 @@
+Character animation validation 2026-11-03T23:53:38.2594370+09:00
+EDITOR PASS Idle pixel settings 1
+EDITOR PASS Idle pixel settings 2
+EDITOR PASS Idle pixel settings 3
+EDITOR PASS Idle pixel settings 4
+EDITOR PASS Idle pixel settings 5
+EDITOR PASS Idle pixel settings 6
+EDITOR PASS Idle pixel settings 7
+EDITOR PASS Idle pixel settings 8
+EDITOR PASS Idle pixel settings 9
+EDITOR PASS Idle pixel settings 10
+EDITOR PASS Idle pixel settings 11
+EDITOR PASS Idle pixel settings 12
+EDITOR PASS Idle pixel settings 13
+EDITOR PASS Idle pixel settings 14
+EDITOR PASS Idle pixel settings 15
+EDITOR PASS Idle pixel settings 16
+EDITOR PASS Idle common canvas and foot pivot
+EDITOR PASS Idle sprite-only clip and endpoint
+EDITOR PASS Idle loop policy
+EDITOR PASS Walk pixel settings 1
+EDITOR PASS Walk pixel settings 2
+EDITOR PASS Walk pixel settings 3
+EDITOR PASS Walk pixel settings 4
+EDITOR PASS Walk pixel settings 5
+EDITOR PASS Walk pixel settings 6
+EDITOR PASS Walk pixel settings 7
+EDITOR PASS Walk pixel settings 8
+EDITOR PASS Walk pixel settings 9
+EDITOR PASS Walk pixel settings 10
+EDITOR PASS Walk pixel settings 11
+EDITOR PASS Walk pixel settings 12
+EDITOR PASS Walk pixel settings 13
+EDITOR PASS Walk pixel settings 14
+EDITOR PASS Walk pixel settings 15
+EDITOR PASS Walk pixel settings 16
+EDITOR PASS Walk common canvas and foot pivot
+EDITOR PASS Walk sprite-only clip and endpoint
+EDITOR PASS Walk loop policy
+EDITOR PASS Attack pixel settings 1
+EDITOR PASS Attack pixel settings 2
+EDITOR PASS Attack pixel settings 3
+EDITOR PASS Attack pixel settings 4
+EDITOR PASS Attack pixel settings 5
+EDITOR PASS Attack pixel settings 6
+EDITOR PASS Attack pixel settings 7
+EDITOR PASS Attack pixel settings 8
+EDITOR PASS Attack pixel settings 9
+EDITOR PASS Attack pixel settings 10
+EDITOR PASS Attack pixel settings 11
+EDITOR PASS Attack pixel settings 12
+EDITOR PASS Attack pixel settings 13
+EDITOR PASS Attack pixel settings 14
+EDITOR PASS Attack pixel settings 15
+EDITOR PASS Attack pixel settings 16
+EDITOR PASS Attack common canvas and foot pivot
+EDITOR PASS Attack sprite-only clip and endpoint
+EDITOR PASS Attack loop policy
+EDITOR PASS Death pixel settings 1
+EDITOR PASS Death pixel settings 2
+EDITOR PASS Death pixel settings 3
+EDITOR PASS Death pixel settings 4
+EDITOR PASS Death pixel settings 5
+EDITOR PASS Death pixel settings 6
+EDITOR PASS Death pixel settings 7
+EDITOR PASS Death pixel settings 8
+EDITOR PASS Death pixel settings 9
+EDITOR PASS Death pixel settings 10
+EDITOR PASS Death pixel settings 11
+EDITOR PASS Death pixel settings 12
+EDITOR PASS Death pixel settings 13
+EDITOR PASS Death pixel settings 14
+EDITOR PASS Death pixel settings 15
+EDITOR PASS Death pixel settings 16
+EDITOR PASS Death common canvas and foot pivot
+EDITOR PASS Death sprite-only clip and endpoint
+EDITOR PASS Death loop policy
+EDITOR PASS New presenter connected and placeholder hidden
+EDITOR PASS Physics size preserved and art native scale
+EDITOR PASS User reviewed sprite orientation inversion retained
+EDITOR PASS Reusable roaming connected on prefab
+EDITOR PASS Cooldown data serialized
+POLICY samples1000 centerRight=498 homeFromRight=860 homeFromLeft=862
+EDITOR PASS Central roam allows both directions
+EDITOR PASS Distance increases homeward choice weight on both sides
+EDITOR PASS Outer roam radius forces return direction
+SUCCESS EDITOR 84
+PLAY PASS Outer territory stays Alert without moving
+PLAY PASS Actual Alert faces left target
+PLAY PASS Actual AI turns right during Alert
+PLAY PASS Actual AI turns left during Alert
+PLAY PASS Real physics roaming moves both left and right
+PLAY PASS Roaming alternates pauses and actual Walk animation
+PLAY PASS Roaming remains near original home
+ROAM measured range=-0.1787825..1.416218 home=1
+PLAY PASS Roaming reverses safely at wall and display follows
+PLAY PASS Roaming turns away from ledge
+PLAY PASS Windup retains committed strike direction
+PLAY PASS Actual Recovery responds to target crossing
+PLAY PASS Cooldown waits in Idle and turns toward target
+PLAY PASS Real hit interrupts Windup
+PLAY PASS Hit immediately closes attack and enters reaction
+PLAY PASS Short stagger leaves remaining attack cooldown
+PLAY PASS Cancelled Windup deals no damage and cannot restart early
+PLAY PASS Next attack begins only after consumed cooldown
+PLAY PASS Real hit interrupts Active
+PLAY PASS Interrupted Active waits after stagger
+PLAY PASS Subsequent cooldown hit accepted
+PLAY PASS Repeated hit neither resets nor removes consumed cooldown
+PLAY PASS Cancelled Active has no further damage before next cooldown
+PLAY PASS Death stops roaming and combat
+SUCCESS PLAY 23
+RESTORED

@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfd4206647bb41149b72ce990e8452d4, type: 3}
+  m_Name: BadgerData
+  m_EditorClassIdentifier: Assembly-CSharp::Etherean.Enemies.BadgerData
+  detectionRange: 4
+  engageRange: 2.5
+  chaseLimit: 6
+  maximumHeightDifference: 1.25
+  moveSpeed: 1.4
+  attackRange: 1.5
+  alertTime: 0.6
+  windupTime: 0.35
+  activeTime: 0.12
+  recoveryTime: 0.65
+  attackCooldown: 2
+  damage: 8
+  knockback: {x: 3.5, y: 2.5}
+  warningEffectPrefab: {fileID: 0}
