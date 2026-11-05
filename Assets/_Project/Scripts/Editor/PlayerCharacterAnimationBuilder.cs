@@ -86,9 +86,8 @@ namespace Etherean.Editor
                 if (old != null && old.TryGetComponent<SpriteRenderer>(out var source))
                 {
                     renderer.sharedMaterial = source.sharedMaterial;
-                    renderer.sortingLayerID = source.sortingLayerID;
-                    renderer.sortingOrder = source.sortingOrder;
                 }
+                SpriteSortingSetup.ConfigurePlayer(renderer);
                 var animator = visual.GetComponent<Animator>();
                 if (animator == null) animator = visual.gameObject.AddComponent<Animator>();
                 animator.runtimeAnimatorController = controller;

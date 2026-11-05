@@ -1,0 +1,71 @@
+Character animation validation 2026-11-04T20:01:25.6822251+09:00
+EDITOR PASS Sword Point32 uncompressed no mipmaps
+EDITOR PASS Sword rotates at grip pivot
+EDITOR PASS Sword prefab purely visual no collision writer
+EDITOR PASS No generated trail or VFX
+EDITOR PASS Motion reference connected attack
+EDITOR PASS Motion reference connected motionData
+EDITOR PASS Motion reference connected facingRoot
+EDITOR PASS Motion reference connected motionRoot
+EDITOR PASS Motion reference connected characterRenderer
+EDITOR PASS Motion reference connected swordRenderer
+EDITOR PASS Player prefab stays weapon locked
+EDITOR PASS Exactly three authored motions
+EDITOR PASS Continuous swing enabled for first hit only
+EDITOR PASS Provided sprite and existing material used
+EDITOR PASS Initial relative length and uniform size
+EDITOR PASS Nested greatsword prefab linked under editable socket
+EDITOR PASS First half stays slow on one continuous curve
+EDITOR PASS Curve monotone with no backward kick or overshoot
+EDITOR PASS Continuous speed across normalized time 0.5
+EDITOR PASS Continuous speed across normalized time 0.75
+EDITOR PASS Continuous speed across normalized time 0.8510638
+EDITOR PASS First-hit grip has no translation during swing or recovery
+FIRST SWING savedBladeScale=(1.00, 1.00, 1.00) minClearance=0.04646569u samples=4001
+EDITOR PASS Opaque sword pixels clear flat collider floor by >.03u
+SUCCESS EDITOR 23
+PLAY PASS Locked weapon stays hidden
+PLAY PASS Unlocked weapon carries behind character
+PLAY PASS Actual attack picks correct ground or air set False
+PLAY PASS DOTween sequence follows attack duration step 1 air=False
+PLAY PASS Paused game does not advance sword clock air=False
+PLAY PASS Directional strike endpoint step 1 air=False
+PLAY PASS Sword front/back order step 1 air=False
+PLAY PASS DOTween sequence follows attack duration step 2 air=False
+PLAY PASS Directional strike endpoint step 2 air=False
+PLAY PASS Sword front/back order step 2 air=False
+PLAY PASS DOTween sequence follows attack duration step 3 air=False
+PLAY PASS Directional strike endpoint step 3 air=False
+PLAY PASS Sword front/back order step 3 air=False
+PLAY PASS Real first-hit grip stays fixed air=False
+PLAY PASS Exactly three combo motions finish air=False
+PLAY PASS Recovery and regrip gaps retained air=False
+PLAY PASS Timed combat still hits once per step only in Active
+PLAY PASS Finished combo returns to carry air=False
+COMBO air=False recoveryGaps=0.2199999,0.52
+PLAY PASS Actual attack picks correct ground or air set True
+PLAY PASS DOTween sequence follows attack duration step 1 air=True
+PLAY PASS Paused game does not advance sword clock air=True
+PLAY PASS Directional strike endpoint step 1 air=True
+PLAY PASS Sword front/back order step 1 air=True
+PLAY PASS DOTween sequence follows attack duration step 2 air=True
+PLAY PASS Directional strike endpoint step 2 air=True
+PLAY PASS Sword front/back order step 2 air=True
+PLAY PASS DOTween sequence follows attack duration step 3 air=True
+PLAY PASS Directional strike endpoint step 3 air=True
+PLAY PASS Sword front/back order step 3 air=True
+PLAY PASS Real first-hit grip stays fixed air=True
+PLAY PASS Exactly three combo motions finish air=True
+PLAY PASS Recovery and regrip gaps retained air=True
+PLAY PASS Finished combo returns to carry air=True
+COMBO air=True recoveryGaps=0.2199998,0.5199995
+PLAY PASS Left-facing carry mirrors sword too
+PLAY PASS Real player hit accepted during sword swing
+PLAY PASS Stagger immediately cancels sword attack tween
+PLAY PASS Hit returns to carry without killing unrelated DOTween
+PLAY PASS Late jump cancel stops sword attack tween
+PLAY PASS Disabling presenter kills only its own tweens
+PLAY PASS Reenable reuses same nested weapon
+PLAY PASS Death hides sword and releases owned tweens
+SUCCESS PLAY 41
+RESTORED

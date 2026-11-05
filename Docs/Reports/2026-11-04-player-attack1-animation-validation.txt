@@ -1,0 +1,82 @@
+Character animation validation 2026-11-04T22:37:55.7580014+09:00
+EDITOR PASS Attack1 pixel import 1
+EDITOR PASS Native canvas and existing foot pivot 1
+EDITOR PASS Attack1 pixel import 2
+EDITOR PASS Native canvas and existing foot pivot 2
+EDITOR PASS Attack1 pixel import 3
+EDITOR PASS Native canvas and existing foot pivot 3
+EDITOR PASS Body clip animates sprite only
+EDITOR PASS Three poses follow first attack timing
+EDITOR PASS Supplied frame order 0
+EDITOR PASS Supplied frame order 1
+EDITOR PASS Supplied frame order 2
+EDITOR PASS Supplied frame order 3
+EDITOR PASS First-hit body clip does not loop
+EDITOR PASS Attack1 linked without changing Idle default
+EDITOR PASS Existing attack presenter and return connected
+SUCCESS EDITOR 15
+PLAY PASS Locked weapon stays hidden
+PLAY PASS Unlocked weapon carries behind character
+PLAY PASS Actual attack picks correct ground or air set False
+PLAY PASS DOTween sequence follows attack duration step 1 air=False
+PLAY PASS Paused game does not advance sword clock air=False
+PLAY PASS Real body pose 1 synchronized air=False
+PLAY PASS Body attack facing air=False pose=1
+PLAY PASS Real body pose 2 synchronized air=False
+PLAY PASS Body attack facing air=False pose=2
+PLAY PASS Directional strike endpoint step 1 air=False
+PLAY PASS Sword front/back order step 1 air=False
+PLAY PASS Real body pose 3 synchronized air=False
+PLAY PASS Body attack facing air=False pose=3
+PLAY PASS DOTween sequence follows attack duration step 2 air=False
+PLAY PASS Missing body clip releases first pose at step 2 air=False
+PLAY PASS Directional strike endpoint step 2 air=False
+PLAY PASS Sword front/back order step 2 air=False
+PLAY PASS DOTween sequence follows attack duration step 3 air=False
+PLAY PASS Missing body clip releases first pose at step 3 air=False
+PLAY PASS Directional strike endpoint step 3 air=False
+PLAY PASS Sword front/back order step 3 air=False
+PLAY PASS All body pose and fallback checks visited air=False
+PLAY PASS Real first-hit grip stays fixed air=False
+PLAY PASS Exactly three combo motions finish air=False
+PLAY PASS Recovery and regrip gaps retained air=False
+PLAY PASS Timed combat still hits once per step only in Active
+PLAY PASS Finished combo returns to carry air=False
+PLAY PASS Body returns to Idle after combo air=False
+COMBO air=False recoveryGaps=0.2199999,0.52
+PLAY PASS Actual attack picks correct ground or air set True
+PLAY PASS DOTween sequence follows attack duration step 1 air=True
+PLAY PASS Paused game does not advance sword clock air=True
+PLAY PASS Real body pose 1 synchronized air=True
+PLAY PASS Body attack facing air=True pose=1
+PLAY PASS Real body pose 2 synchronized air=True
+PLAY PASS Body attack facing air=True pose=2
+PLAY PASS Directional strike endpoint step 1 air=True
+PLAY PASS Sword front/back order step 1 air=True
+PLAY PASS Real body pose 3 synchronized air=True
+PLAY PASS Body attack facing air=True pose=3
+PLAY PASS DOTween sequence follows attack duration step 2 air=True
+PLAY PASS Missing body clip releases first pose at step 2 air=True
+PLAY PASS Directional strike endpoint step 2 air=True
+PLAY PASS Sword front/back order step 2 air=True
+PLAY PASS DOTween sequence follows attack duration step 3 air=True
+PLAY PASS Missing body clip releases first pose at step 3 air=True
+PLAY PASS Directional strike endpoint step 3 air=True
+PLAY PASS Sword front/back order step 3 air=True
+PLAY PASS All body pose and fallback checks visited air=True
+PLAY PASS Real first-hit grip stays fixed air=True
+PLAY PASS Exactly three combo motions finish air=True
+PLAY PASS Recovery and regrip gaps retained air=True
+PLAY PASS Finished combo returns to carry air=True
+PLAY PASS Body returns to Idle after combo air=True
+COMBO air=True recoveryGaps=0.2199998,0.5199995
+PLAY PASS Left-facing carry mirrors sword too
+PLAY PASS Real player hit accepted during sword swing
+PLAY PASS Stagger immediately cancels sword attack tween
+PLAY PASS Hit returns to carry without killing unrelated DOTween
+PLAY PASS Late jump cancel stops sword attack tween
+PLAY PASS Disabling presenter kills only its own tweens
+PLAY PASS Reenable reuses same nested weapon
+PLAY PASS Death hides sword and releases owned tweens
+SUCCESS PLAY 61
+RESTORED

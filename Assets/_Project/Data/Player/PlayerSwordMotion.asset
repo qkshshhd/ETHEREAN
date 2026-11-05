@@ -1,0 +1,125 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14ce2bf8dd9847d409f2b34720c2ca2b, type: 3}
+  m_Name: PlayerSwordMotion
+  m_EditorClassIdentifier: Assembly-CSharp::Etherean.Player.PlayerSwordMotionData
+  carry:
+    position: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: -80}
+    orderOffset: -1
+  returnDuration: 0.35
+  returnEase: 3
+  lengthRatio: 1.2
+  combo:
+  - lift:
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: -170}
+      orderOffset: -1
+    ready:
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: -210}
+      orderOffset: -1
+    strike:
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: -280}
+      orderOffset: 1
+    recovery:
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: -280}
+      orderOffset: 1
+    continuousSwing: 1
+    swingProgress:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.5
+        value: 0.1
+        inSlope: 0.6
+        outSlope: 0.6
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.8510638
+        value: 0.65
+        inSlope: 3
+        outSlope: 3
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    liftFraction: 0.75
+    windupEase: 4
+    strikeEase: 5
+    recoveryEase: 3
+  - lift:
+      position: {x: 0.02, y: 0.05, z: 0}
+      rotation: {x: 0, y: 0, z: -295}
+      orderOffset: 1
+    ready:
+      position: {x: 0.05, y: 0.03, z: 0}
+      rotation: {x: 0, y: 0, z: -305}
+      orderOffset: 1
+    strike:
+      position: {x: -0.08, y: 0.2, z: 0}
+      rotation: {x: 0, y: 0, z: -140}
+      orderOffset: -1
+    recovery:
+      position: {x: -0.12, y: 0.12, z: 0}
+      rotation: {x: 0, y: 0, z: -140}
+      orderOffset: -1
+    liftFraction: 0.55
+    windupEase: 4
+    strikeEase: 6
+    recoveryEase: 3
+  - lift:
+      position: {x: -0.12, y: 0.1, z: 0}
+      rotation: {x: 15, y: -15, z: -125}
+      orderOffset: -1
+    ready:
+      position: {x: -0.15, y: 0.02, z: 0}
+      rotation: {x: 15, y: -15, z: -100}
+      orderOffset: -1
+    strike:
+      position: {x: 0.05, y: 0.02, z: 0}
+      rotation: {x: 15, y: 165, z: -100}
+      orderOffset: 1
+    recovery:
+      position: {x: 0.02, y: 0, z: 0}
+      rotation: {x: 0, y: 180, z: -90}
+      orderOffset: 1
+    liftFraction: 0.55
+    windupEase: 4
+    strikeEase: 4
+    recoveryEase: 3
