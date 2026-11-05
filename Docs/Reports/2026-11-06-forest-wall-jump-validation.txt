@@ -1,0 +1,16 @@
+Forest room revision native validation
+PASS Latest forest room layout loaded
+PASS F room exists
+PASS Current route links loaded
+PASS No missing scripts
+EDITOR PASS
+PASS Fresh isolated checkpoint session started
+PASS Wall jump and I gate start locked
+PASS Grounded east of F and still locked
+PASS Walking left through F unlocks wall jump
+PASS I gate opens after unlock
+PASS Basic jump reaches F wall: (20.26, -17.71)
+PASS Second Space equivalent launches right and up off left wall
+PASS Validation did not write a save
+PLAY PASS
+RESTORED

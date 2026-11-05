@@ -1,0 +1,30 @@
+Forest whitebox native validation
+PASS Session player and start bench deserialize
+PASS Route reference session
+PASS Route reference encounterBoar
+PASS Route reference encounterGate
+PASS Route reference shortcutGate
+PASS Route reference interactAction
+PASS All 17 shortcut step references
+PASS Both bench sprites
+PASS Three spawn anchors
+PASS Follow target
+PASS No missing scripts
+EDITOR PASS
+PASS Forest session starts at A
+PASS Starting grounded with wall traversal locked
+PASS Synthetic gamepad jump reaches player input
+PASS Full ground jump height 1.352u
+PASS Ground jump lands on A trail
+PASS C-E steps use one-way effectors in Play
+PASS D cannot open before boar defeat
+PASS Boar death records clear
+PASS D opens on E after clear
+PASS E opens C-E barrier
+PASS F unlocks actual wall traversal
+PASS H return progress records
+PASS I exit records completion
+PASS Out-of-bounds fall returns to A bench
+PASS Validation did not create a save
+PLAY PASS
+RESTORED
