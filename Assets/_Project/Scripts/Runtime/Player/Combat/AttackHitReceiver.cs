@@ -8,6 +8,10 @@ namespace Etherean.Player
         public readonly HitReaction Reaction;
         public readonly Vector2 Knockback;
         public readonly Vector2 Point;
+        public AttackHit(int damage, HitReaction reaction, Vector2 knockback, Vector2 point)
+        {
+            Damage = damage; Reaction = reaction; Knockback = knockback; Point = point;
+        }
         public AttackHit(PlayerAttackData data, int direction, Vector2 point)
         {
             Damage = data.Damage;

@@ -19,6 +19,14 @@ namespace Etherean.Player
         [SerializeField] private PlayerWallSlide wallSlide;
         private float _actionSpeedMultiplier = 1f;
         private bool _actionAllowsJump = true;
+        private bool _hasExternalMotion, _launchExternal;
+        private Vector2 _externalMotion;
+
+        public void SetExternalMotion(Vector2 motion, bool launches)
+        {
+            _hasExternalMotion = true; _externalMotion = motion; _launchExternal = launches;
+            SetActionConstraints(0, false);
+        }
 
         public event Action<MovementFrame> PreparingMovement;
         public event Action JumpStarted;
@@ -42,6 +50,13 @@ namespace Etherean.Player
         }
 
         public bool IsGrounded { get; private set; }
+        public bool IsSeated { get; private set; }
+        public void SetSeated(bool seated)
+        {
+            if (IsSeated == seated) return;
+            IsSeated = seated;
+            ResetRuntimeState();
+        }
         public bool IsWallSliding => wallSlide != null && wallSlide.IsWallSliding;
 
         private void Reset()
@@ -88,6 +103,13 @@ namespace Etherean.Player
             if (!movement.isActiveAndEnabled)
                 return;
             movement.BeginMovement();
+            if (IsSeated)
+            {
+                DiscardJumpRequests();
+                PreparingMovement?.Invoke(new MovementFrame(true, false, false, 0f, Time.fixedTime));
+                movement.ApplyVelocity(Vector2.zero);
+                return;
+            }
             PlayerWallSensor.WallContacts walls = wallSensor.CheckWalls();
             bool abilityUnlocked = traversalAbilities.isActiveAndEnabled && traversalAbilities.WallTraversalUnlocked;
             wallJump.UpdateContacts(walls, abilityUnlocked && wallSensor.isActiveAndEnabled && movementInputSource.isActiveAndEnabled, Time.fixedTime);
@@ -102,13 +124,22 @@ namespace Etherean.Player
             bool held = movementInputSource.IsJumpHeld;
             float horizontalInput = movementInputSource.HorizontalInput;
             wallSlide.ResetState();
-            IsGrounded = velocity.y <= 0f && groundSensor.CheckGrounded();
+            IsGrounded = groundSensor.CheckGrounded(velocity);
             if (IsGrounded)
                 wallJump.ResetState();
             jump.UpdateState(IsGrounded, pressed, released, held, movementInputSource.isActiveAndEnabled, now);
             bool sliding = !IsGrounded && velocity.y <= 0f && walls.HasContact && abilityUnlocked && wallSlide.isActiveAndEnabled;
             SetActionConstraints(1f, true);
+            _hasExternalMotion = false;
             PreparingMovement?.Invoke(new MovementFrame(IsGrounded, sliding, movementInputSource.isActiveAndEnabled, horizontalInput, now));
+            if (_hasExternalMotion)
+            {
+                jump.ResetState(); wallJump.ResetState(); wallSlide.ResetState();
+                velocity.x = _externalMotion.x;
+                if (_launchExternal) { velocity.y = _externalMotion.y; IsGrounded = false; }
+                else velocity.y = IsGrounded ? 0 : movement.CalculateGravitySpeed(velocity.y, Time.fixedDeltaTime);
+                return velocity;
+            }
             if (!wallJump.IsControlLocked(now))
                 velocity.x = movement.CalculateHorizontalSpeed(horizontalInput, _actionSpeedMultiplier);
             if (TryStartJump(walls, abilityUnlocked, horizontalInput, held, now, ref velocity))
@@ -149,14 +180,24 @@ namespace Etherean.Player
             return true;
         }
 
-        private void CancelPendingInput()
+        public void DiscardJumpRequests()
         {
             if (jump != null) jump.ClearBuffer();
             if (wallJump != null) wallJump.CancelPendingInput();
+            if (movementInputSource != null)
+            {
+                movementInputSource.ConsumeJumpPress(); movementInputSource.ConsumeJumpRelease();
+            }
+        }
+
+        private void CancelPendingInput()
+        {
+            DiscardJumpRequests();
             SetActionConstraints(1f, true);
             ControlCancelled?.Invoke();
         }
 
+        public void ResetForRespawn() { ResetRuntimeState(); }
         private void ResetRuntimeState()
         {
             IsGrounded = false;
@@ -174,6 +215,7 @@ namespace Etherean.Player
 
         private void OnDisable()
         {
+            IsSeated = false;
             if (movementInputSource != null) movementInputSource.InputDisabled -= CancelPendingInput;
             if (movement != null)
             {

@@ -29,6 +29,7 @@ namespace Etherean.Player
         public int FacingDirection { get; private set; } = 1;
         public bool StartedInAir { get; private set; }
         public bool WeaponUnlocked => weaponUnlocked;
+        public event Action WeaponUnlockChanged;
         public PlayerAttackData CurrentData => _currentData;
         public float PhaseProgress => _currentData == null ? 0f : Mathf.Clamp01((_now - _phaseStarted) / PhaseDuration);
         public float AttackProgress => _currentData == null ? 0f : Mathf.Clamp01(
@@ -54,8 +55,10 @@ namespace Etherean.Player
         }
         public void SetWeaponUnlocked(bool unlocked)
         {
+            if (weaponUnlocked == unlocked) return;
             weaponUnlocked = unlocked;
             if (!unlocked) CancelAttack();
+            WeaponUnlockChanged?.Invoke();
         }
 
         internal void Tick(bool grounded, bool wallSliding, float horizontalInput, bool controlEnabled, float now)

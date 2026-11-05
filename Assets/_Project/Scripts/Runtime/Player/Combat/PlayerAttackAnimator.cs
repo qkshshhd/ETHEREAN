@@ -10,6 +10,7 @@ namespace Etherean.Player
         [SerializeField, Min(0)] private int layer;
         [SerializeField] private string returnStateName;
         private bool _driving;
+        private float _previousSpeed;
         public bool IsDrivingAnimation => _driving;
 
         private void OnEnable()
@@ -25,17 +26,20 @@ namespace Etherean.Player
         {
             if (attack == null || !attack.IsAttacking || characterAnimator == null ||
                 !characterAnimator.isActiveAndEnabled || characterAnimator.runtimeAnimatorController == null ||
-                layer >= characterAnimator.layerCount) return;
+                layer >= characterAnimator.layerCount) { ReleaseAnimation(); return; }
             string state = attack.CurrentData.AnimationStateName;
-            if (string.IsNullOrEmpty(state)) return;
+            if (string.IsNullOrEmpty(state)) { ReleaseAnimation(); return; }
             int hash = Animator.StringToHash(state);
-            if (!characterAnimator.HasState(layer, hash)) return;
+            if (!characterAnimator.HasState(layer, hash)) { ReleaseAnimation(); return; }
+            if (!_driving) _previousSpeed = characterAnimator.speed;
+            characterAnimator.speed = 0f;
             characterAnimator.Play(hash, layer, attack.AttackProgress);
             characterAnimator.Update(0f);
             _driving = true;
         }
         private void ReleaseAnimation()
         {
+            if (_driving && characterAnimator != null) characterAnimator.speed = _previousSpeed;
             if (_driving && characterAnimator != null && characterAnimator.isActiveAndEnabled &&
                 characterAnimator.runtimeAnimatorController != null && layer < characterAnimator.layerCount &&
                 !string.IsNullOrEmpty(returnStateName))

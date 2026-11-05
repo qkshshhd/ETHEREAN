@@ -20,6 +20,11 @@ namespace Etherean.Player
         public event Action MovementDisabled;
         public Vector2 Velocity => Body.linearVelocity;
         private Rigidbody2D Body => _rigidbody2D != null ? _rigidbody2D : _rigidbody2D = GetComponent<Rigidbody2D>();
+        public void Teleport(Vector3 position)
+        {
+            transform.position = position; Body.position = position;
+            Body.linearVelocity = Vector2.zero; Body.angularVelocity = 0;
+        }
 
         private void OnEnable()
         {
